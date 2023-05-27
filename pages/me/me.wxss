@@ -1,0 +1,70 @@
+/* pages/me/me.wxss */
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.page-view {
+  height: 100%; 
+  width: 100%;
+  padding: 0;
+  background-color:#ebe4e4;
+}
+
+.person-info-view {
+  height: 30%;
+  width: 100%;
+  background: -webkit-linear-gradient(bottom,#F0FFFF,	#E1FFFF, 	#87CEFA);
+  display: flex;
+  align-items: center;
+}
+
+.person-img-view {
+  height: 50%;
+  width: 20%;
+  margin-left: 30rpx;
+}
+
+.person-name-view {
+  height: 43%;
+  width: 70%;
+  margin-left: 30rpx;
+  font-size: 60rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.option-view {
+  height: auto;
+  width: 95%;
+  margin-top: 30rpx;
+  margin-left: 2.5%;
+  overflow: hidden;
+  border-radius: 30rpx;
+}
+
+.option-item-view {
+  height: 100rpx;
+  width: 100%;
+  background-color: white;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: silver solid 1rpx;
+}
+
+.option-item-img-view {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.option-item-text-view {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}

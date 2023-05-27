@@ -1,0 +1,38 @@
+<!--pages/me/me.wxml-->
+<view class="page-view">
+  <view class="person-info-view">
+    <image class="person-img-view" src="/image/head.png"></image>
+    <view class="person-name-view">{{userName}}哈哈哈哈哈哈哈哈哈哈哈哈</view>
+  </view>
+  <view class="option-view">
+    <view class="option-item-view">
+      <view class="option-item-img-view">
+        <image style="height: 70%; width: 100%" src="/image/yes.png"></image>
+      </view>
+      <text class="option-item-text-view ">所有预约</text>
+      <view class="option-item-img-view">
+        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+      </view>
+    </view>
+    <view class="option-item-view" bindtap="onModifyPersonInfo">
+      <view class="option-item-img-view">
+        <image style="height: 70%; width: 100%" src="/image/info.png"></image>
+      </view>
+      <text class="option-item-text-view ">修改个人资料</text>
+      <view class="option-item-img-view">
+        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="option-view">
+    <view class="option-item-view"  bindtap="onAdminLogin">
+      <view class="option-item-img-view">
+        <image style="height: 70%; width: 100%" src="/image/setting.png"></image>
+      </view>
+      <text class="option-item-text-view ">后台管理</text>
+      <view class="option-item-img-view">
+        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
