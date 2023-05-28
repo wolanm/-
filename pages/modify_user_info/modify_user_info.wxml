@@ -1,0 +1,18 @@
+<view class="page-view">
+  <view class="img-view">
+    <image src="/image/head.png" style="height: 70%; width: 50%;"></image>
+  </view>
+  <form bindsubmit="onSubmit">
+    <view class="userInfo-view">
+      <view class="input-view">
+        <text class="input-text-view">用户名:</text>
+        <input class="input-content-view" name="userName" type="text" placeholder="请输入用户名" value="{{userName}}"/>
+      </view>
+      <view class="input-view">
+        <text class="input-text-view">手机号:</text>
+        <input class="input-content-view" name="userPhone" type="number" maxlength="11" placeholder="请输入手机号" value="{{userPhone}}"/>
+      </view>
+    </view>
+    <button type="primary" form-type="submit">保存</button>
+  </form>
+</view>

@@ -1,8 +1,8 @@
 <!--pages/me/me.wxml-->
 <view class="page-view">
-  <view class="person-info-view">
+  <view class="person-info-view" bindtap="onModifyPersonInfo">
     <image class="person-img-view" src="/image/head.png"></image>
-    <view class="person-name-view">{{userName}}哈哈哈哈哈哈哈哈哈哈哈哈</view>
+    <view class="person-name-view">{{userName}}</view>
   </view>
   <view class="option-view">
     <view class="option-item-view">

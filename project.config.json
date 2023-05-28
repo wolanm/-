@@ -20,12 +20,7 @@
     },
     "condition": false,
     "packNpmManually": true,
-    "packNpmRelationList": [
-      {
-        "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./miniprogram/"
-      }
-    ]
+    "packNpmRelationList": []
   },
   "condition": {},
   "editorSetting": {

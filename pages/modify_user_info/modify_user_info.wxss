@@ -1,0 +1,46 @@
+/* pages/modify_person_info/modify_person_info.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.page-view {
+  height: 100%;
+  width: 100%;
+}
+
+.img-view {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 10rpx solid#DCDCDC;
+}
+
+.userInfo-view {
+  height: 50%;
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.input-view {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid#DCDCDC;
+}
+
+.input-text-view {
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.input-content-view {
+  height: 100%;
+}

@@ -12,8 +12,10 @@
     "pages/admin_login/admin_login",
     "pages/admin_mgr/admin_mgr",
     "pages/modifyPersonInfo/modifyPersonInfo",
-    "pages/modify_person_info/modify_person_info",
-    "pages/user_login/user_login"
+    "pages/modify_user_info/modify_user_info",
+    "pages/user_login/user_login",
+    "pages/user_info/user_info",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,7 +60,5 @@
     "downloadFile": 10000
   },
   "debug": true,
-  "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
-  }
+  "usingComponents": {}
 }

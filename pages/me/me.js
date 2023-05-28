@@ -15,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      userName: app.globalData.userInfo.userName,
+      userPhone: app.globalData.userInfo.userPhone
+    })
   },
 
   /**
@@ -80,14 +83,18 @@ Page({
    * 修改个人信息
    */
   onModifyPersonInfo() {
-    if (app.globalData.loginStatus) {
-      wx.navigateTo({
-        url: '/pages/modify_person_info/modify_person_info',
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/user_login/user_login',
-      })
-    }
-  }
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
+    wx.navigateTo({
+      url: '/pages/modify_user_info/modify_user_info'
+    })
+    // if (app.globalData.loginStatus) {
+      
+    // } else {
+    //   wx.navigateTo({
+    //     url: '/pages/user_login/user_login',
+    //   })
+    // }
+  },
 })

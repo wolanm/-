@@ -1,0 +1,5 @@
+<!--pages/user_info/user_info.wxml-->
+<view>
+  <view>{{userName}}</view>
+  <view>{{userPhone}}</view>
+</view>
