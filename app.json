@@ -13,8 +13,6 @@
     "pages/admin_mgr/admin_mgr",
     "pages/modifyPersonInfo/modifyPersonInfo",
     "pages/modify_user_info/modify_user_info",
-    "pages/user_login/user_login",
-    "pages/user_info/user_info",
     "pages/login/login"
   ],
   "window": {
@@ -50,8 +48,8 @@
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "image/me.jpg",
-        "selectedIconPath": "image/me.jpg"
+        "iconPath": "image/me_close.png",
+        "selectedIconPath": "image/me_close.png"
       }
     ]
   },

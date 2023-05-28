@@ -1,6 +1,3 @@
 <view>
-  <image src="{{userInfo.avatarUrl}}"></image>
-  <view>{{userInfo.nickName}}</view>
-
+  <button type="primary" bindtap="login" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
 </view>
-<button bindtap="login">登录</button>

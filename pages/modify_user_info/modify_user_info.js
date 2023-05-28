@@ -17,8 +17,8 @@ Page({
    */
   onLoad(options) {
       this.setData({
-        userName: app.globalData.userInfo.userName,
-        userPhone: app.globalData.userInfo.userPhone
+        userName: app.globalData.userName,
+        userPhone: app.globalData.userPhone
       })
   },
 
@@ -33,17 +33,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.setData({
+      userName: app.globalData.userName,
+      userPhone: app.globalData.userPhone
+    })
   },
 
   onSubmit(e) {
-    console.log(e.detail.value)
+    if (e.detail.value.userPhone.length != 11) {
+      wx.showToast({ // 显示Toast
+        title: '手机号有误',
+        icon: 'error',
+        duration: 1500
+      })
+
+      return
+    }
     this.setData({
       userName: e.detail.value.userName,
       userPhone: e.detail.value.userPhone,
     })
     app.setUserInfo(this.data.userName, this.data.userPhone)
-    this.onLoad()
+    wx.cloud.database().collection('user_info').doc(app.globalData.docId).update({
+      // data 传入需要局部更新的数据
+      data: {
+        userName: e.detail.value.userName,
+        userPhone: e.detail.value.userPhone
+      }
+    })
     // 操作反馈
     wx.showToast({ // 显示Toast
       title: '修改成功',

@@ -1,7 +1,7 @@
 <!--pages/me/me.wxml-->
 <view class="page-view">
   <view class="person-info-view" bindtap="onModifyPersonInfo">
-    <image class="person-img-view" src="/image/head.png"></image>
+    <image class="person-img-view" src="/image/me_open.jpg"></image>
     <view class="person-name-view">{{userName}}</view>
   </view>
   <view class="option-view">

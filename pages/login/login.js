@@ -1,9 +1,11 @@
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-     userInfo:null
+     userName:'',
   },
   //在页面加载的时候，判断缓存中是否有内容，如果有，存入到对应的字段里
   onLoad: function () {
@@ -19,21 +21,29 @@ Page({
       desc: '用于获取用户信息',
       success(res) {
         var userInfo = res.userInfo
-        
-        that.setData({userInfo: userInfo})
+        that.setData({userName: userInfo.nickName})
         wx.cloud.database().collection('user_info').add({
           data: {
             imgUrl: userInfo.avatarUrl,
-            userName: userInfo.nickName
+            userName: userInfo.nickName,
+            userPhone: ''
           },
           success(res) {
-            console.log(res)
+            app.globalData.docId = res._id
+            app.globalData.loginStatus = true
+            app.globalData.userName = that.data.userName
             wx.showToast({
               title: '登录成功',
+              icon: 'success',
+              duration: 1000
             })
           }
         })
       }
+    })
+
+    wx.navigateTo({
+      url: '/pages/modify_user_info/modify_user_info',
     })
   }
 })

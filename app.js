@@ -5,20 +5,41 @@ App({
     wx.cloud.init({
       env: 'cloud1-8glw5m5v07e9ee9d'
     })
-    // 从数据库里拿
-    this.globalData.userInfo = {
-      userName: '微信用户',
-      userPhone: ''
-    }
+
+    console.log(111)
+
+    // 获取用户的 openid
+    var that = this
+    wx.cloud.callFunction({
+      name:'login_get_openid',
+      success(res) {
+        that.globalData.openid = res.result.openid
+        // 从数据库中查找是否有这条记录
+        wx.cloud.database().collection('user_info').where({
+          _openid: res.result.openid
+        }).get({
+          success(result) {
+            var query_res = result.data[0]
+            that.globalData.userName = query_res.userName
+            that.globalData.userPhone = query_res.userPhone
+            that.globalData.docId = query_res._id
+            that.globalData.loginStatus = true
+          }
+        })
+      }
+    })
   },
 
   setUserInfo(userName, userPhone) {
-    this.globalData.userInfo.userName = userName
-    this.globalData.userInfo.userPhone = userPhone
+    this.globalData.userName = userName
+    this.globalData.userPhone = userPhone
   },
 
   globalData:{
-    userInfo:null,
+    userName:'',
+    userPhone: '',
+    openid: '',
+    docId: '',
     loginStatus:false
   },
 })

@@ -16,58 +16,19 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      userName: app.globalData.userInfo.userName,
-      userPhone: app.globalData.userInfo.userPhone
+      userName: app.globalData.userName,
+      userPhone: app.globalData.userPhone
     })
+    console.log(this.data)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
+    console.log(this.data)
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    this.setData({
+      userName: app.globalData.userName,
+      userPhone: app.globalData.userPhone
+    })
   },
 
   /**
@@ -83,18 +44,16 @@ Page({
    * 修改个人信息
    */
   onModifyPersonInfo() {
+    if (app.globalData.loginStatus) {
+      wx.navigateTo({
+        url: '/pages/modify_user_info/modify_user_info'
+      })
+
+      return
+    }
+
     wx.navigateTo({
       url: '/pages/login/login',
     })
-    wx.navigateTo({
-      url: '/pages/modify_user_info/modify_user_info'
-    })
-    // if (app.globalData.loginStatus) {
-      
-    // } else {
-    //   wx.navigateTo({
-    //     url: '/pages/user_login/user_login',
-    //   })
-    // }
   },
 })

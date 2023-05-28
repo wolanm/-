@@ -1,6 +1,6 @@
 <view class="page-view">
   <view class="img-view">
-    <image src="/image/head.png" style="height: 70%; width: 50%;"></image>
+    <image src="/image/me_open.jpg" style="height: 100%; width: 100%;"></image>
   </view>
   <form bindsubmit="onSubmit">
     <view class="userInfo-view">
@@ -10,7 +10,7 @@
       </view>
       <view class="input-view">
         <text class="input-text-view">手机号:</text>
-        <input class="input-content-view" name="userPhone" type="number" maxlength="11" placeholder="请输入手机号" value="{{userPhone}}"/>
+        <input class="input-content-view" name="userPhone" type="text" placeholder="请输入手机号" value="{{userPhone}}"/>
       </view>
     </view>
     <button type="primary" form-type="submit">保存</button>
