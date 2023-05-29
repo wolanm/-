@@ -1,2 +1,20 @@
 <!--pages/admin_login/admin_login.wxml-->
-<text>pages/admin_login/admin_login.wxml</text>
+<view class="page-view">
+  <image class="al-background-img-view" src="/image/admin_login_background1.jpg"></image>
+  <view class="al-page-text-view">
+    <image class="al-text-background-img-view" src="/image/admin_login_background2.jpg" ></image>
+    <view style="height: 100%; width: 100%; position: absolute; z-index: 2;">
+      <view class="al-title-view">LOGIN</view>
+      <view class="al-login-view">
+        <form bindsubmit="onAdminLogin" style="height: 100%; width: 100%;">
+          <input class="al-login-item-view" name="userName" type="text" placeholder="用户名" />
+          <input class="al-login-item-view" name="userPassword" type="safe-password" placeholder="密码" />
+          <button class="al-btn-view" form-type="submit">登录</button>
+        </form>
+      </view>
+      <view class="al-option-view" bindtap="onFindPassword">
+        找回密码
+      </view>
+    </view>
+  </view>
+</view>

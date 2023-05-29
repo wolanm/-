@@ -19,12 +19,9 @@ Page({
       userName: app.globalData.userName,
       userPhone: app.globalData.userPhone
     })
-    console.log(this.data)
   },
 
   onShow() {
-    console.log(this.data)
-
     this.setData({
       userName: app.globalData.userName,
       userPhone: app.globalData.userPhone
