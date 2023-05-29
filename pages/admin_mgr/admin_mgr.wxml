@@ -1,2 +1,38 @@
 <!--pages/admin_mgr/admin_mgr.wxml-->
-<text>pages/admin_mgr/admin_mgr.wxml</text>
+<view class="page-view">
+  <view class="person-info-view">
+    <image class="person-img-view" src="/image/admin.png"></image>
+    <view class="person-name-view">{{adminName}}</view>
+  </view>
+  <view class="statistic-view">
+    <view class="statistic-item-view">
+      <view class="statistic-item-text-view">{{1}}</view>
+      <view class="statistic-item-text-view">预约数</view>
+    </view>
+    <view class="statistic-item-view">
+      <view class="statistic-item-text-view">{{1}}</view>
+      <view class="statistic-item-text-view">景点数</view>
+    </view>
+    <view class="statistic-item-view">
+      <view class="statistic-item-text-view">{{1}}</view>
+      <view class="statistic-item-text-view">攻略数</view>
+    </view>
+    <view class="statistic-item-view">
+      <view class="statistic-item-text-view">{{1}}</view>
+      <view class="statistic-item-text-view">美食内容数</view>
+    </view>
+  </view>
+  <view class="options-grid-view">
+    <view class="options-grid-title-view">
+      <image class="options-grid-title-img-view" src="/image/use.png"></image>
+      <text class="options-grid-title-text-view">功能管理</text>
+    </view>
+    <view class="options-grid-content-view">
+      <view class="options-grid-item-view">预约管理</view>
+      <view class="options-grid-item-view">景点管理</view>
+      <view class="options-grid-item-view">攻略管理</view>
+      <view class="options-grid-item-view">美食推荐管理</view>
+    </view>
+  </view>
+  <view class="options-row-view">超级管理员管理</view>
+</view>

@@ -60,7 +60,7 @@ Page({
 
       if (query_res.userPassword === adminPassword) {
         wx.navigateTo({
-          url: '/pages/admin_mgr/admin_mgr?adminName=' + adminName + '&adminPassword=' + adminPassword,
+          url: '/pages/admin_mgr/admin_mgr?adminName=' + adminName + '&adminPhone=' + query_res.userPhone,
         })
   
         return

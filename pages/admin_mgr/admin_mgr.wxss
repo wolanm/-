@@ -1,1 +1,97 @@
 /* pages/admin_mgr/admin_mgr.wxss */
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.page-view {
+  height: 100%; 
+  width: 100%;
+  padding: 0;
+  background-color:#ebe4e4;
+}
+
+.person-info-view {
+  height: 20%;
+  width: 100%;
+  background: -webkit-linear-gradient(bottom,#F0FFFF,	#E1FFFF, 	#87CEFA);
+  display: flex;
+  align-items: center;
+}
+
+.person-img-view {
+  height: 70%;
+  width: 30%;
+  margin-left: 30rpx;
+  border-radius: 50%;
+}
+
+.person-name-view {
+  height: 43%;
+  width: 70%;
+  margin-left: 30rpx;
+  font-size: 60rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.statistic-view {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  margin-bottom: 10rpx;
+}
+
+.statistic-item-view {
+  height: 100%;
+  width: 25%;
+  display: flex block;
+}
+
+.statistic-item-text-view {
+  height: 50%;
+  text-align: center;
+}
+
+.options-grid-view {
+  height: 50%;
+}
+
+.options-grid-title-view {
+  height: 20%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.options-grid-title-img-view {
+  height: 60%;
+  width: 17%;
+}
+
+.options-grid-title-text-view {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  font-size: 40rpx;
+}
+
+.options-grid-content-view {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.options-grid-item-view {
+  height: 50%;
+  width: 33%;
+}
+
+
+.options-row-view {
+  height: 10%;
+}
