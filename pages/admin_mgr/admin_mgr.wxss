@@ -48,6 +48,8 @@ page {
   height: 100%;
   width: 25%;
   display: flex block;
+  border: 1rpx solid #ebe4e4;
+  box-sizing: border-box;
 }
 
 .statistic-item-text-view {
@@ -55,20 +57,31 @@ page {
   text-align: center;
 }
 
+.statistic-item-text-view:first-child {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .options-grid-view {
-  height: 50%;
+  height: auto;
+  margin-bottom: 20rpx;
 }
 
 .options-grid-title-view {
-  height: 20%;
+  height: 100rpx;
+  margin-bottom: 5rpx;
   background-color: white;
+  color: gray;
   display: flex;
   align-items: center;
 }
 
 .options-grid-title-img-view {
-  height: 60%;
-  width: 17%;
+  padding-left: 10rpx;
+  padding-right: 3rpx;
+  height: 40%;
+  width: 9%;
 }
 
 .options-grid-title-text-view {
@@ -76,22 +89,65 @@ page {
   width: 80%;
   display: flex;
   align-items: center;
-  font-size: 40rpx;
+  font-size: 37rpx;
 }
 
 .options-grid-content-view {
-  height: 80%;
+  height: auto;
   width: 100%;
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
+  background-color: white;
 }
 
 .options-grid-item-view {
-  height: 50%;
-  width: 33%;
+  height: 170rpx;
+  width: 33.3%;
+  display: flex block;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #ebe4e4;
+  box-sizing: border-box;
 }
 
+.options-grid-item-img-view {
+  height: 33%;
+  width: 30%;
+  margin: 30rpx 0 5rpx 35%;
+}
+
+.options-grid-item-text-view {
+  height: 50%;
+  width: 100%;
+  text-align: center;
+}
 
 .options-row-view {
-  height: 10%;
+  height: 100rpx;
+  width: 100%;
+  background-color: white;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+}
+
+.options-row-img-view:first-child {
+  height: 50rpx;
+  width: 50rpx;
+  margin: 0 10rpx 0 30rpx;
+  display: inline-block;
+}
+
+.options-row-img-view {
+  height: 100rpx;
+  width: 80rpx;
+  margin: 0 0 0 180rpx;
+  display: inline-block;
+}
+
+.options-row-text-view {
+  height: 50rpx;
+  width: 400rpx;
+  display: inline-block;
 }

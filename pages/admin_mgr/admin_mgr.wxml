@@ -28,11 +28,27 @@
       <text class="options-grid-title-text-view">功能管理</text>
     </view>
     <view class="options-grid-content-view">
-      <view class="options-grid-item-view">预约管理</view>
-      <view class="options-grid-item-view">景点管理</view>
-      <view class="options-grid-item-view">攻略管理</view>
-      <view class="options-grid-item-view">美食推荐管理</view>
+      <view class="options-grid-item-view">
+        <image class="options-grid-item-img-view" src="/image/meet.png"></image>
+        <view class="options-grid-item-text-view">预约管理</view>
+      </view>
+      <view class="options-grid-item-view">
+        <image class="options-grid-item-img-view" src="/image/view.png"></image>
+        <view class="options-grid-item-text-view">景点管理</view>
+      </view>
+      <view class="options-grid-item-view">
+        <image class="options-grid-item-img-view" src="/image/strategy.png"></image>
+        <view class="options-grid-item-text-view">攻略管理</view>
+      </view>
+      <view class="options-grid-item-view">
+        <image class="options-grid-item-img-view" src="/image/food.png"></image>
+        <view class="options-grid-item-text-view">美食推荐管理</view>
+      </view>
     </view>
   </view>
-  <view class="options-row-view">超级管理员管理</view>
+  <view class="options-row-view">
+    <image class="options-row-img-view" src="/image/admin_mgr.png"></image>
+    <view class="options-row-text-view">超级管理员管理</view>
+    <image class="options-row-img-view" src="/image/arrow.png"></image>
+  </view>
 </view>

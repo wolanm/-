@@ -49,7 +49,7 @@
         "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "image/me_close.png",
-        "selectedIconPath": "image/me_close.png"
+        "selectedIconPath": "image/me_open1.png"
       }
     ]
   },
