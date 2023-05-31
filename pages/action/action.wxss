@@ -1,12 +1,37 @@
-.actionpic{
- width:98%;
- height:388rpx;
- padding:1% 1%;
- border-radius: 36rpx;
-}
-.clear{
+.zjn {
   display: flex;
-  flex-direction: column;
-  height:10rpx;
-  background: #eeeeee;
-}
+      flex-direction: row;
+      align-items: center;
+    padding: 20rpx;
+    flex-wrap: wrap;
+    height: 150rpx;
+  }
+  .scenic-spot-item{
+    border-top: 1rpx solid #ccc;
+    display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+  .image {
+    width: 100px;
+      height: 100px;
+      margin-right: 10px;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name{
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .gaishu{
+    width: 445rpx;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:pre-wrap;
+    flex: 1 1 auto;
+  }

@@ -1,0 +1,93 @@
+/* pages/book/book.wxss */
+.zjn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.scenic-spot-info{
+  padding: 41rpx;
+  border-top:1rpx solid #eeeeee;
+  border-bottom:1rpx solid #eeeeee;
+  margin-bottom: 2px;
+}
+.wx-cell{
+  margin-bottom: 40rpx;
+  margin-left: 60rpx;
+  position: relative;
+}
+.icon{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  left:-55rpx;
+  top:-6rpx;
+}
+.icon-postion{
+  width: 50rpx;
+  height:50rpx;
+}
+.cell-bd{
+  font-size: 32rpx;
+  color:#666;
+}
+.cell-fd{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  left: 220px;
+  top:13rpx;
+
+}
+.dizhi{
+  display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+}
+.name{
+  display:flex;
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+  margin-bottom: 30rpx;
+}
+.opentime{
+  font-weight: lighter;
+  font-size:30rpx;
+}
+.address{
+  font-weight: lighter;
+  font-size:30rpx;
+}
+.section {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom:1rpx solid #eeeeee;
+}
+.youke{
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+.picker {
+  height: 45px;
+  line-height: 45px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #f5f5f5;
+  padding-left: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #1aad19;
+  color: white;
+  text-align: center;
+}

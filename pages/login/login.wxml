@@ -1,3 +1,8 @@
-<view>
-  <button type="primary" bindtap="login" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
+<!--pages/login/login.wxml-->
+<view class="container">
+  <form bindsubmit="login">
+    <input type="text" name="username" placeholder="请输入用户名" />
+   <input type="password" name="password" placeholder="请输入密码" />
+   <button type="submit">登录</button>
+  </form>
 </view>

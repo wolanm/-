@@ -1,32 +1,11 @@
-<view class="content">
-  <navigator url="/pages/teacherlist/teacherlist" hover-class="navigator-hover" class="con-teacher">
-    <view class="con-tr">
-      <image src="{{trimg}}" class="con-trimg"></image>
-    </view>
-    <view class="con-info">
-      <view class="coin-name">姓名姓名</view>
-      <view class="coin-info">讲课风格：简介简介简介简介简介简介简</view>
-    </view>
-  </navigator>
-
-  <navigator url="url" class="con-teacher">
-    <view class="con-tr">
-      <image src="{{trimg}}" class="con-trimg"></image>
-    </view>
-    <view class="con-info">
-      <view class="coin-name">姓名姓名</view>
-      <view class="coin-info">讲课风格：简介简介简介简介简介简介简</view>
-    </view>
-  </navigator>
-
-  <navigator url="url" class="con-teacher">
-    <view class="con-tr">
-      <image src="{{trimg}}" class="con-trimg"></image>
-    </view>
-    <view class="con-info">
-      <view class="coin-name">姓名姓名</view>
-      <view class="coin-info">讲课风格：简介简介简介简介简介简介简</view>
-    </view>
-  </navigator>
-
+<view class="zjn">
+  <view class="meishi-list">
+   <block wx:for="{{meishi}}">
+      <view class="text-container">
+      <view class="name">{{item.name}}</view>
+      <view class="gaishu">{{item.gaishu}}</view>
+      <image class="image" src="{{item.image}}"></image>
+      </view>
+    </block>
+  </view>
 </view>

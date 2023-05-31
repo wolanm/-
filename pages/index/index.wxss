@@ -1,4 +1,40 @@
 /**index.wxss**/
+.container{
+ margin-top: -30px;
+ flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.-info{
+  float: left;
+  margin-left: -300px;
+  position:relative;
+}
+
+.list-photo{
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: -50px;
+  
+}
+.list-desc{
+  margin-left: 30px;
+  font-size: 14px;
+}
+.-desc{
+  display: block;
+  background-color: #000;
+  color: #fff;
+  position: absolute;
+  bottom: 3%;
+  left: 0;
+  width: 94%;
+  text-align: center;
+  font-size: 25rpx;
+  padding: 10rpx;
+  opacity: 0.7;
+}
 .slide-image{
   width:100%;
   height:400rpx;
@@ -103,6 +139,7 @@
   flex-direction: column;
   border-top:1rpx solid #eeeeee;
   position: relative;
+  margin-top: -80px;
 }
 .more-info{
   display: flex;

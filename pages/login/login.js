@@ -1,49 +1,23 @@
-const app = getApp()
-
+// pages/login/login.js
 Page({
-  /**
-   * 页面的初始数据
-   */
-  data: {
-     userName:'',
-  },
-  //在页面加载的时候，判断缓存中是否有内容，如果有，存入到对应的字段里
-  onLoad: function () {
-    
-  },
-
-  /**
-   * 登录
-   */
-  login() {
-    var that = this
-    wx.getUserProfile({
-      desc: '用于获取用户信息',
-      success(res) {
-        var userInfo = res.userInfo
-        that.setData({userName: userInfo.nickName})
-        wx.cloud.database().collection('user_info').add({
-          data: {
-            imgUrl: userInfo.avatarUrl,
-            userName: userInfo.nickName,
-            userPhone: ''
-          },
-          success(res) {
-            app.globalData.docId = res._id
-            app.globalData.loginStatus = true
-            app.globalData.userName = that.data.userName
-            wx.showToast({
-              title: '登录成功',
-              icon: 'success',
-              duration: 1000
-            })
-          }
-        })
-      }
-    })
-
-    wx.navigateTo({
-      url: '/pages/modify_user_info/modify_user_info',
-    })
+  login: function(e) {
+    var username = e.detail.value.username;
+    var password = e.detail.value.password;
+    // 从本地存储中获取保存的用户名和密码
+    var savedUsername = wx.getStorageSync('username');
+    var savedPassword = wx.getStorageSync('password');
+    // 判断输入的用户名和密码是否正确
+    if (username === savedUsername && password === savedPassword) {
+      // 登录成功，跳转到首页
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    } else {
+      // 登录失败，弹出提示框
+      wx.showToast({
+        title: '用户名或密码错误',
+        icon: 'none'
+      })
+    }
   }
 })
