@@ -1,25 +1,34 @@
-.con-teacher{
+.zjn {
   display: flex;
-  flex-direction:row;
-  width:90%;
-  height:320rpx;
-  border: 2rpx solid #eeeeee;
-  padding:10rpx 10rpx;
-  margin:10rpx auto;
+    flex-direction: column;
+    align-items: center;
+  padding: 20rpx;
+  flex-wrap: wrap;
+  height: 150rpx;
+  }
+.meishi-list{
+  border-top: 1rpx solid #ccc;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.con-trimg{
-  width:260rpx;
-  height:290rpx;
-  margin:15rpx 20rpx; 
-}
-.con-info{
-  margin:15rpx 20rpx;
-  overflow: hidden; 
-  font-size: 32rpx;
-  font-family: "微软雅黑";
-  color:#606060;
-}
-.coin-info{
-  line-height: 60rpx;
-  font-size: 28rpx;
-}
+  .image{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .text-container {
+    display: flex;
+  flex-direction: column;
+  }
+  .name{
+    font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  }
+  .gaishu{
+    line-height: 60rpx;
+    font-size: 28rpx;  
+  }

@@ -1,67 +1,69 @@
 
-.mod-item{
- width:46%;
- height:300rpx;
- float: left;
- margin-left:20rpx;
- margin-top:40rpx;
- position: relative;
+.zjn {
+display: flex;
+    flex-direction: row;
+    align-items: center;
+  padding: 20rpx;
+  flex-wrap: wrap;
+  height: 150rpx;
 }
-.mod-signup{
-  position: absolute;
+.scenic-spot-item{
+  border-top: 1rpx solid #ccc;
+  display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-.mod-signup image{
-  width:76rpx;
-  height:42rpx;
+.image {
+  width: 100px;
+    height: 100px;
+    margin-right: 10px;
 }
-.mod-img{
-  width:100%;
-  height:180rpx;
-} 
-.mod-image{
-  width: 100%;
-  height:180rpx;
-}
-.mod-title{
-  font-size:32rpx;
-  font-family: '微软雅黑';
-  display:flex;
-  height:45rpx;
-  margin-top:15rpx;
-  flex-direction:column;
-  justify-content: center;
-  text-overflow: -o-ellipsis-lastline;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.mod-info{
+.text-container {
   display: flex;
   flex-direction: column;
-  height:40rpx;
 }
-.mod-icon{
-  display: flex;
-  flex-direction: row;
-  width: 40rpx;
-  height: 40rpx;
+.second{
+  flex-flow: row;		
+    display: flex;
+    
+    
 }
-.icon{
-  width: 40rpx;
-  height: 40rpx;
+.name{
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
-.moinfont{
-  font-size: 28rpx;
-  text-indent: 60rpx;
-  font-family: '微软雅黑';
-  color:#bfbfbf;
-}
+.level{
+  font-size: 10px;
+    margin-bottom: 10px;
+    color:green;
 
-.more-info{
-  display: flex;
-  flex-direction: column;
-  font-size:32rpx;
-  font-family: '微软雅黑';
-  line-height: 98rpx;
-  text-indent: 30rpx;
-  color:#586C94;
+    
 }
+.gaishu{
+    font-size: 10px;
+      margin-bottom: 10px;
+      color:orange;
+     margin-left: 20rpx;
+  }
+  .opentime{
+    font-size: 10px;
+      margin-bottom: 10px;
+  }
+  .forth{
+    flex-flow: row;		
+      display: flex;
+      justify-content: space-between;
+  }
+  .state{
+    font-size: 10px;
+      margin-bottom: 10px;
+      color:green;
+     
+  }
+  .reserve{
+    font-size: 10px;
+      margin-bottom: 10px;
+      color:orange;
+      margin-right: 80rpx;
+  }

@@ -1,0 +1,50 @@
+<!--pages/book/book.wxml-->
+<view class="zjn">
+  <view class="scenic-spot-info">
+    <view class="name">{{name}}</view>
+      <view class="wx-cell">
+         <view class="icon">
+            <image src="/image/icon-clock.png" class="icon-postion"></image>
+         </view>
+         <view class="cell-bd">{{opentime}}</view>
+      </view>
+      <view class="wx-cell">
+         <view class="icon">
+            <image src="/image/icon-address.png" class="icon-postion"></image>
+         </view>
+         <view class="dizhi">
+         <view class="cell-bd" >地址：{{address}}</view>
+         <view class="cell-fd" bindtap="getLocation">
+          <image src="/image/icon-jt.png" class="icon-postion"></image>
+         </view>
+        </view>
+  </view>
+  </view>
+  <view class="section" data-date="{{dateIndex}}" >
+    <picker mode="selector" range="{{dates}}" bindchange="bindDateChange">
+    <view class="picker">
+      预约日期：{{selectedDate}}
+    </view>
+  </picker>
+  </view>
+ <view class="section" data-time="{{timeIndex}}">
+  <picker mode="selector" range="{{times}}" bindchange="bindTimeChange">
+    <view class="picker">
+      预约时段：{{selectedTime}}
+    </view>
+  </picker>
+  </view>
+  <view class="section">
+    剩余容量：{{capacities[dateIndex][timeIndex]}}
+  </view>
+  <view class="youke">
+  游客信息
+  </view>
+ <view class="section" data-name="{{lastname}}" >
+   <input class="input" placeholder="请输入姓名" bindinput="bindNameInput" />
+  </view>
+  <view class="section" data-phone="{{phone}}">
+    <input class="input" placeholder="请输入电话号码" bindinput="bindPhoneInput" />
+  </view>
+ <button class="submit-btn" bindtap="reserve">提交预约</button>
+</view>

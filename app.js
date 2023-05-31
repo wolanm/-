@@ -27,7 +27,7 @@ App({
       }
     })
   },
-
+  
   setUserInfo(userName, userPhone) {
     this.globalData.userName = userName
     this.globalData.userPhone = userPhone
@@ -38,6 +38,13 @@ App({
     userPhone: '',
     openid: '',
     docId: '',
-    loginStatus:false
-  },
+    loginStatus:false,
+    bookingInfo: null,
+    reservation: {
+      date: '',
+      time: '',
+      name: '',
+      phone: ''
+    }
+  }
 })

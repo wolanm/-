@@ -1,55 +1,58 @@
 {
-  "pages": [
+  "pages":[
     "pages/index/index",
     "pages/signup/signup",
+    "pages/book/book",
     "pages/action/action",
     "pages/about/about",
     "pages/teacher/teacher",
-    "pages/teacherlist/teacherlist",
     "pages/actionlist/actionlist",
+    "pages/mine/mine",
+    "pages/login/login",
     "pages/logs/logs",
-    "pages/me/me",
+    "pages/activity2/activity2",
+    "pages/qrcode/qrcode",
     "pages/admin_login/admin_login",
     "pages/admin_mgr/admin_mgr",
-    "pages/modify_user_info/modify_user_info",
-    "pages/login/login",
-    "pages/admin_set_password/admin_set_password"
+    "pages/me/me",
+    "pages/modify_user_info/modify_user_info"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4ec4c8",
-    "navigationBarTitleText": "景区预约",
-    "navigationBarTextStyle": "white"
+  "window":{
+    "usingComponents": {},
+    "backgroundColor": "#f1f1f1",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2674FD",
+    "navigationBarTextStyle":"white"
   },
   "tabBar": {
-    "color": "#888",
-    "selectedColor": "#4ec5c9",
-    "backgroundColor": "#fff",
+    "backgroundColor": "#fefefe",
+		"color": "#999999",
+		"selectedColor": "#2674FD",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "image/home.png",
-        "selectedIconPath": "image/homeactive.png"
+        "selectedIconPath": "image/home_cur.png"
       },
       {
         "pagePath": "pages/signup/signup",
-        "text": "我要报名",
-        "iconPath": "image/bm.png",
-        "selectedIconPath": "image/bmactive.png"
+        "text": "景点预约",
+        "iconPath": "image/day.png",
+        "selectedIconPath": "image/day_cur.png"
       },
       {
         "pagePath": "pages/action/action",
-        "text": "活动",
-        "iconPath": "image/action.png",
-        "selectedIconPath": "image/actionactive.png"
+        "text": "景点攻略",
+        "iconPath": "image/cate2.png",
+        "selectedIconPath": "image/cate2_cur.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "image/me_close.png",
-        "selectedIconPath": "image/me_open1.png"
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my_cur.png"
       }
     ]
   },
@@ -57,6 +60,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true,
-  "usingComponents": {}
+  "debug": true
 }
