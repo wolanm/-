@@ -1,31 +1,44 @@
 //app.js
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-  },
-  getUserInfo:function(cb){
+    // 云开发环境的初始化
+    wx.cloud.init({
+      env: 'cloud1-8glw5m5v07e9ee9d'
+    })
+
+    // 获取用户的 openid
     var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
+    wx.cloud.callFunction({
+      name:'login_get_openid',
+      success(res) {
+        that.globalData.openid = res.result.openid
+        // 从数据库中查找是否有这条记录
+        wx.cloud.database().collection('user_info').where({
+          _openid: res.result.openid
+        }).get({
+          success(result) {
+            var query_res = result.data[0]
+            that.globalData.userName = query_res.userName
+            that.globalData.userPhone = query_res.userPhone
+            that.globalData.docId = query_res._id
+            that.globalData.loginStatus = true
+          }
+        })
+      }
+    })
   },
+  
+  setUserInfo(userName, userPhone) {
+    this.globalData.userName = userName
+    this.globalData.userPhone = userPhone
+  },
+
   globalData:{
-    userInfo:null,
+    userName:'',
+    userPhone: '',
+    openid: '',
+    docId: '',
+    loginStatus:false,
     bookingInfo: null,
     reservation: {
       date: '',

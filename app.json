@@ -11,8 +11,11 @@
     "pages/login/login",
     "pages/logs/logs",
     "pages/activity2/activity2",
-    "pages/qrcode/qrcode"
-    
+    "pages/qrcode/qrcode",
+    "pages/admin_login/admin_login",
+    "pages/admin_mgr/admin_mgr",
+    "pages/me/me",
+    "pages/modify_user_info/modify_user_info"
   ],
   "window":{
     "usingComponents": {},
@@ -46,7 +49,7 @@
         "selectedIconPath": "image/cate2_cur.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "image/my.png",
         "selectedIconPath": "image/my_cur.png"
