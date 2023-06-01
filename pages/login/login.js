@@ -12,6 +12,12 @@ Page({
     
   },
 
+  jumpToModifyPage() {
+    wx.navigateTo({
+      url: '/pages/modify_user_info/modify_user_info',
+    })
+  },
+
   /**
    * 登录
    */
@@ -33,17 +39,17 @@ Page({
             app.globalData.loginStatus = true
             app.globalData.userName = that.data.userName
             wx.showToast({
-              title: '登录成功',
-              icon: 'success',
-              duration: 1000
+              title: '加载中',
+              icon: 'loading',
+              duration: 2000
             })
+            
           }
         })
       }
     })
 
-    wx.navigateTo({
-      url: '/pages/modify_user_info/modify_user_info',
-    })
-  }
+    // wx.getUserProfile 是异步的，等待 showToast 完成
+    setTimeout(this.jumpToModifyPage, 2000)
+  },
 })
