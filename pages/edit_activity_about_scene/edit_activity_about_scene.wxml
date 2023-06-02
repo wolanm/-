@@ -1,0 +1,22 @@
+<!--pages/edit_activity_about_scene/edit_activity_about_scene.wxml-->
+<view class="page-view">
+  <form bindsubmit="onSubmit" style="height: 100%; width: 100%;">
+    <view class="picker-item-view">
+      <view class="picker-item-text-view">分类</view>
+      <picker class="picker-item-input-view" mode="selector" range='{{editType}}' bindchange='selectorChange' >{{selectItem}}</picker>
+      <image class="picker-item-arrow-view" src="/image/arrow.png"></image>
+    </view>
+    <view class="title-item-view">
+      <view class="title-item-text-view">标题</view>
+      <input class="title-item-input-view" type="text" name="title" />
+    </view>
+    <view class="content-item-view" style="height: 30%;">
+      <view class="content-item-text-view">内容</view>
+      <textarea class="content-item-input-view" type="text" maxlength="-1" name="content"></textarea>
+    </view>
+    <view class="article-item-view">
+      <view class="article-item-text-view">图片上传</view>
+    </view>
+    <button type="primary" form-type="submit">保存</button>
+  </form>
+</view>

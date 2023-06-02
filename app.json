@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/signup/signup",
     "pages/book/book",
@@ -7,7 +7,6 @@
     "pages/about/about",
     "pages/teacher/teacher",
     "pages/actionlist/actionlist",
-    "pages/mine/mine",
     "pages/login/login",
     "pages/logs/logs",
     "pages/activity2/activity2",
@@ -15,19 +14,20 @@
     "pages/admin_login/admin_login",
     "pages/admin_mgr/admin_mgr",
     "pages/me/me",
-    "pages/modify_user_info/modify_user_info"
+    "pages/modify_user_info/modify_user_info",
+    "pages/edit_activity_about_scene/edit_activity_about_scene"
   ],
-  "window":{
+  "window": {
     "usingComponents": {},
     "backgroundColor": "#f1f1f1",
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2674FD",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "backgroundColor": "#fefefe",
-		"color": "#999999",
-		"selectedColor": "#2674FD",
+    "color": "#999999",
+    "selectedColor": "#2674FD",
     "borderStyle": "white",
     "list": [
       {

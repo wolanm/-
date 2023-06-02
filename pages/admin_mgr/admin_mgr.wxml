@@ -19,7 +19,11 @@
     </view>
     <view class="statistic-item-view">
       <view class="statistic-item-text-view">{{1}}</view>
-      <view class="statistic-item-text-view">美食内容数</view>
+      <view class="statistic-item-text-view">动态数</view>
+    </view>
+    <view class="statistic-item-view">
+      <view class="statistic-item-text-view">{{1}}</view>
+      <view class="statistic-item-text-view">美食特产数</view>
     </view>
   </view>
   <view class="options-grid-view">
@@ -36,13 +40,17 @@
         <image class="options-grid-item-img-view" src="/image/view.png"></image>
         <view class="options-grid-item-text-view">景点管理</view>
       </view>
-      <view class="options-grid-item-view">
+      <view class="options-grid-item-view" bindtap="editActivityAboutScene">
         <image class="options-grid-item-img-view" src="/image/strategy.png"></image>
         <view class="options-grid-item-text-view">攻略管理</view>
       </view>
+      <view class="options-grid-item-view" bindtap="editActivityAboutScene">
+        <image class="options-grid-item-img-view" src="/image/condition.png"></image>
+        <view class="options-grid-item-text-view">动态管理</view>
+      </view>
       <view class="options-grid-item-view">
         <image class="options-grid-item-img-view" src="/image/food.png"></image>
-        <view class="options-grid-item-text-view">美食推荐管理</view>
+        <view class="options-grid-item-text-view">美食特产管理</view>
       </view>
     </view>
   </view>

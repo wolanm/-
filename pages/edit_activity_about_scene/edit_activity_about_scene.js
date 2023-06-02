@@ -1,22 +1,18 @@
-// pages/admin_mgr/admin_mgr.js
+// pages/edit_activity_about_scene/edit_activity_about_scene.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    adminName: '',
-    adminPhone: '',
+    editType: ['景区攻略', '景区动态'],
+    selectItem: '景区攻略'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      adminName: options.adminName,
-      adminPhone: options.adminPhone
-    })
   },
 
   /**
@@ -33,9 +29,13 @@ Page({
 
   },
 
-  editActivityAboutScene() {
-    wx.navigateTo({
-      url: '/pages/edit_activity_about_scene/edit_activity_about_scene',
-    })
+  selectorChange(e) {
+    let i = e.detail.value
+    let v = this.data.editType[i]
+    this.setData({selectItem: v})
+  },
+
+  onSubmit(e) {
+    
   }
 })

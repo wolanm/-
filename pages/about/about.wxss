@@ -1,4 +1,9 @@
 /**about.wxss**/
+page {
+  width: 100%;
+  height: 100%;
+}
+
 .zjn {
   display: flex;
       flex-direction: row;
@@ -6,12 +11,20 @@
     padding: 20rpx;
     flex-wrap: wrap;
     height: 150rpx;
-  }
+    width: 100%;
+}
+
+.scenic-spot-list {
+  width: 100%;
+}
+
   .scenic-spot-item{
     border-top: 1rpx solid #ccc;
     display: flex;
       flex-direction: row;
       align-items: center;
+      border-bottom: 1rpx solid #ccc;
+      box-sizing: border-box;
   }
   .image {
     width: 100px;

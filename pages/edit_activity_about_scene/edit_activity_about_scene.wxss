@@ -1,0 +1,90 @@
+/* pages/edit_activity_about_scene/edit_activity_about_scene.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.page-view {
+  height: 100%;
+  width: 100%;
+}
+
+.picker-item-view {
+  padding-top: 30rpx;
+  height: 6%;
+  width: 100%;
+  display: flex;
+  padding-left: 10rpx;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.picker-item-text-view {
+  height: 100%;
+  padding-left: 20rpx;
+  display: inline-block;
+}
+
+.picker-item-input-view {
+  height: 100%;
+  width: 200rpx;
+  display: inline-block;
+  position: relative;
+  left: 510rpx;
+}
+
+.picker-item-arrow-view {
+  height: 50rpx;
+  width: 50rpx;
+  display: inline-block;
+  position: relative;
+  left: 425rpx;
+  top: -4rpx;
+}
+
+.title-item-view {
+  height: 6%;
+  width: 100%;
+  padding-top: 30rpx;
+  display: flex;
+  padding-left: 10rpx;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.title-item-text-view {
+  height: 100%;
+  margin-left: 20rpx;
+  display: inline-block;
+}
+
+.title-item-input-view {
+  padding-left: 10rpx;
+  padding-top: 1rpx;
+  width: 85%;
+  display: inline-block;
+}
+
+.content-item-view {
+  height: 30%;
+  width: 100%;
+  padding-top: 30rpx;
+  padding-left: 10rpx;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.content-item-text-view {
+  height: 10%;
+  width: 100%;
+  padding-left: 20rpx;
+}
+
+.content-item-input-view {
+  height: 80%;
+  width: 100%;
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+}

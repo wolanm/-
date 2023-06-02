@@ -6,11 +6,18 @@
     flex-wrap: wrap;
     height: 150rpx;
   }
+
+  .scenic-spot-list {
+    width: 100%;
+  }
+
   .scenic-spot-item{
     border-top: 1rpx solid #ccc;
     display: flex;
       flex-direction: row;
       align-items: center;
+      border-bottom: 1rpx solid #ccc;
+      box-sizing: border-box;
   }
   .image {
     width: 100px;

@@ -1,15 +1,23 @@
 /* pages/book/book.wxss */
+page {
+  height: 100%;
+  width: 100%;
+}
+
 .zjn {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
 }
 .scenic-spot-info{
-  padding: 41rpx;
+  margin-top: 50rpx;
+  height: 30%;
+  width: 100%;
   border-top:1rpx solid #eeeeee;
   border-bottom:1rpx solid #eeeeee;
-  margin-bottom: 2px;
+  margin-bottom: 2rpx;
 }
 .wx-cell{
   margin-bottom: 40rpx;
@@ -31,24 +39,17 @@
   font-size: 32rpx;
   color:#666;
 }
-.cell-fd{
-  width: 50rpx;
-  height:50rpx;
-  position: absolute;
-  left: 220px;
-  top:13rpx;
 
-}
 .dizhi{
   display: flex;
-flex-flow: row nowrap;
-justify-content: space-between;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 .name{
   display:flex;
   font-size: 35rpx;
   font-weight: bold;
-  margin-left: 14rpx;
+  padding-left:60rpx;
   margin-bottom: 30rpx;
 }
 .opentime{
@@ -63,10 +64,14 @@ justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
   border-bottom:1rpx solid #eeeeee;
+  padding-left: 30rpx;
 }
 .youke{
+  width: 100%;
   margin-top: -10px;
   margin-bottom: 5px;
+  font-weight: 900;
+  padding-left: 30rpx;
 }
 .picker {
   height: 45px;
@@ -89,5 +94,33 @@ justify-content: space-between;
   line-height: 45px;
   background-color: #1aad19;
   color: white;
+  text-align: center;
+}
+
+.navigate-view {
+  height: 100rpx;
+  width: 100%;
+  margin-top: -20rpx;
+}
+
+.navigate-img-view {
+  height: 60rpx;
+  width: 60rpx;
+  display: inline-block;
+  position: relative;
+  top: 10rpx;
+}
+
+.navigate-text-view {
+  height: 45rpx;
+  width: 150rpx;
+  margin-left: 3rpx;
+  display: inline-block;
+  font-size: 32rpx;
+  color:green;
+  border: 5rpx solid green;
+  border-radius: 15rpx;
+  position: relative;
+  top:-10rpx;
   text-align: center;
 }

@@ -13,12 +13,13 @@
             <image src="/image/icon-address.png" class="icon-postion"></image>
          </view>
          <view class="dizhi">
-         <view class="cell-bd" >地址：{{address}}</view>
-         <view class="cell-fd" bindtap="getLocation">
-          <image src="/image/icon-jt.png" class="icon-postion"></image>
-         </view>
+          <view class="cell-bd" >地址：{{address}}</view>
         </view>
-  </view>
+      </view>
+      <view class="navigate-view">
+        <image class="navigate-img-view" src="/image/navigate.png"></image>
+        <view class="navigate-text-view" bindtap="navigate">立即导航</view>
+      </view>
   </view>
   <view class="section" data-date="{{dateIndex}}" >
     <picker mode="selector" range="{{dates}}" bindchange="bindDateChange">
@@ -38,7 +39,7 @@
     剩余容量：{{capacities[dateIndex][timeIndex]}}
   </view>
   <view class="youke">
-  游客信息
+    游客信息
   </view>
  <view class="section" data-name="{{lastname}}" >
    <input class="input" placeholder="请输入姓名" bindinput="bindNameInput" />

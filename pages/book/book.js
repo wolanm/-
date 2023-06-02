@@ -30,9 +30,7 @@ Page({
       address:address,
     });
   },
-  getLocation: function (){
-   
-  },
+
   bindDateChange: function(e) {
 
     this.setData({
@@ -112,6 +110,10 @@ Page({
     wx.navigateTo({
       url: `/pages/qrcode/qrcode?lastname=${lastname}&phone=${phone}`
     })
+  },
+
+  navigate() {
+    
   }
 })
     

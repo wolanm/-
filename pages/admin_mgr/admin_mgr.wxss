@@ -42,12 +42,12 @@ page {
   display: flex;
   background-color: white;
   margin-bottom: 10rpx;
-  font-size: 30rpx;
+  font-size: 25rpx;
 }
 
 .statistic-item-view {
   height: 100%;
-  width: 25%;
+  width: 20%;
   display: flex block;
   border: 1rpx solid #ebe4e4;
   box-sizing: border-box;
