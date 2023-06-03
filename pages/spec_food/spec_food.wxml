@@ -2,9 +2,9 @@
   <view class="meishi-list">
    <block wx:for="{{meishi}}">
       <view class="text-container">
-      <view class="name">{{item.name}}</view>
-      <view class="gaishu">{{item.gaishu}}</view>
-      <image class="image" src="{{item.image}}"></image>
+        <view class="name">{{item.name}}</view>
+        <view class="gaishu">{{item.gaishu}}</view>
+        <image class="image" src="{{item.image}}"></image>
       </view>
     </block>
   </view>

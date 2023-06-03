@@ -1,3 +1,4 @@
+// pages/edit_spec_food/edit_spec_food.js
 // pages/edit_activity_about_scene/edit_activity_about_scene.js
 const db = wx.cloud.database()
 
@@ -30,12 +31,6 @@ Page({
 
   },
 
-  selectorChange(e) {
-    let i = e.detail.value
-    let v = this.data.editType[i]
-    this.setData({selectItem: v})
-  },
-
   selectImg(e) {
     var idx = e.currentTarget.dataset.index
     if (idx != this.data.imgList.length - 1) {
@@ -43,7 +38,7 @@ Page({
     }
 
     var that = this
-    var cnt = 7 - this.data.imgList.length
+    var cnt = 2 - this.data.imgList.length
     wx.chooseImage({
       count: cnt,
       sourceType:['album', 'camera'],
@@ -98,13 +93,13 @@ Page({
   },
 
   add_to_db(title, content, imgList) {
-    db.collection('scenic_guide_info').add({
+    db.collection('spec_food_info').add({
       data : {
         title: title,
         content: content,
         imgList: imgList
       },
-      success() {
+      success(e) {
         wx.showToast({
           title: '保存成功',
           icon: 'success',

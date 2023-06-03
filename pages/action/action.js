@@ -1,43 +1,38 @@
 //action.js
 //获取应用实例
-var app = getApp()
+const app = getApp()
+const db = wx.cloud.database()
+
 Page({
   data: {
-    gonglueList:[
-      {
-        id:"1",
-        name:"美丽乡村游",
-        gaishu:"游马儿山村",
-        image:"/image/gonglue1.jpg",
-      },
-      {
-        id:"2",
-        name:"网红打卡游",
-        gaishu:"张家界大峡谷一溪布街一天门山一大庸古城",
-        image:"/image/gonglue21.jpg",
-      },
-      {
-        id:3,
-        name:"学习科普游",
-        gaishu:"看大庸风情，研学特色线路",
-        image:"/image/gonglue31.jpg",
-      },
-      {
-        id:"4",
-        name:"七星山攻略",
-        gaishu:"一生一定要去一次张家界七星山，美得惊人!",
-        image:"/image/gonglue41.jpg",
-      },
-    ]
+    gonglueList:[]
   },
+  onLoad() {
+    
+  },
+  
+  onShow() {
+    var that = this
+    db.collection('scenic_guide_info').get().then(res => {
+      dataList = []
+      for (idx in res.data) {
+        let item = res.data[idx]
+        let dataObj = {
+          id: item._id,
+          name: item.title,
+          image: item.imgList[0]
+        }
+        dataList.push(dataObj)
+      }
+
+      that.setData({gonglueList: dataList})
+    })
+  },
+
   onScenicSpotTap: function (event) {
-    const id = event.currentTarget.dataset.id;
-    console.log(id)
+    const id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/actionlist/actionlist?id=${id}`
     })
   }
-
-
-
 });

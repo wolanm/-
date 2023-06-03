@@ -1,4 +1,4 @@
-/* pages/edit_activity_about_scene/edit_activity_about_scene.wxss */
+/* pages/edit_spec_food/edit_spec_food.wxss */
 
 page {
   height: 100%;
@@ -59,6 +59,7 @@ page {
 .image-item-view {
   height: 40%;
   width: 100%;
+  margin-left: 20rpx;
 }
 
 .image-item-text-view {
@@ -74,8 +75,8 @@ page {
 }
 
 .image-item-list-for-view {
-  height: 200rpx;
-  width: 33.3%;
+  height: 300rpx;
+  width: 300rpx;
 }
 
 .image-item-list-img-view {

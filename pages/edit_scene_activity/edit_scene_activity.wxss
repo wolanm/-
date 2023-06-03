@@ -1,4 +1,4 @@
-/* pages/edit_activity_about_scene/edit_activity_about_scene.wxss */
+/* pages/edit_scene_activity/edit_scene_activity.wxss */
 
 page {
   height: 100%;
@@ -34,8 +34,31 @@ page {
   display: inline-block;
 }
 
-.content-item-view {
-  height: 30%;
+.location-item-view {
+  height: 6%;
+  width: 100%;
+  padding-top: 30rpx;
+  display: flex;
+  padding-left: 10rpx;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.location-item-text-view {
+  height: 100%;
+  margin-left: 20rpx;
+  display: inline-block;
+}
+
+.location-item-input-view {
+  padding-left: 10rpx;
+  padding-top: 1rpx;
+  width: 80%;
+  display: inline-block;
+}
+
+.content-item-with-location-view {
+  height: 25%;
   width: 100%;
   padding-top: 30rpx;
   padding-left: 10rpx;

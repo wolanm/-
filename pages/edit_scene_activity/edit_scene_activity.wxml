@@ -1,11 +1,15 @@
-<!--pages/edit_activity_about_scene/edit_activity_about_scene.wxml-->
+<!--pages/edit_scene_activity/edit_scene_activity.wxml-->
 <scroll-view class="page-view">
   <form bindsubmit="onSubmit" style="height: 100%; width: 100%;">
     <view class="title-item-view">
       <view class="title-item-text-view">标题</view>
       <input class="title-item-input-view" type="text" name="title" />
     </view>
-    <view class="content-item-view" style="height: 30%;">
+    <view class="location-item-view">
+      <view class="location-item-text-view">活动地点</view>
+      <input class="location-item-input-view" type="text" name="location" />
+    </view>
+    <view class="content-item-with-location-view">
       <view class="content-item-text-view">内容</view>
       <textarea class="content-item-input-view" type="text" maxlength="-1" name="content"></textarea>
     </view>

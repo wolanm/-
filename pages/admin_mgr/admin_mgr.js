@@ -37,5 +37,17 @@ Page({
     wx.navigateTo({
       url: '/pages/edit_activity_about_scene/edit_activity_about_scene',
     })
+  },
+
+  editSceneActivity() {
+    wx.navigateTo({
+      url: '/pages/edit_scene_activity/edit_scene_activity',
+    })
+  },
+
+  editSpecFood() {
+    wx.navigateTo({
+      url: '/pages/edit_spec_food/edit_spec_food',
+    })
   }
 })

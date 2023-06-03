@@ -57,8 +57,9 @@ Page({
 
   onSubmit(e) {
     var title = e.detail.value.title
+    var location = e.detail.value.location
     var content = e.detail.value.content
-    if (title.length === 0 || content.length === 0) {
+    if (title.length === 0 || content.length === 0 || location.length === 0) {
       wx.showToast({
         title: '请填写内容',
         icon:'error',
@@ -73,7 +74,7 @@ Page({
       var res = that.uploadArctile()
       resolve(res)
     }).then(res => {
-      that.add_to_db(title, content, res)
+      that.add_to_db(title, content, location, res)
     })
   },
 
@@ -97,11 +98,12 @@ Page({
     return imgList
   },
 
-  add_to_db(title, content, imgList) {
-    db.collection('scenic_guide_info').add({
+  add_to_db(title, content, location, imgList) {
+    db.collection('scene_activity_info').add({
       data : {
         title: title,
         content: content,
+        location: location,
         imgList: imgList
       },
       success() {

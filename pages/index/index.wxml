@@ -25,7 +25,7 @@
         景点预约
        </text>
   </navigator>
-  <navigator url="/pages/teacher/teacher" hover-class="navigator-hover" class="plate-item">
+  <navigator url="/pages/spec_food/spec_food" hover-class="navigator-hover" class="plate-item">
      <view class="plate-img">
        <image src="{{a4src}}"></image>
        </view>
@@ -47,7 +47,7 @@
  <view class="container">
    <block wx:for="{{activityList}}">
     <view class="list">
-     <view class="list-info" data-id="{{item.id}} " bindtap="onScenicSpotTap">
+     <view class="list-info" data-id="{{item.id}}" bindtap="onScenicSpotTap">
       <image class="list-photo"  src="{{item.image}}"></image>
       <view class="list-desc">{{item.name}}</view>
       </view>

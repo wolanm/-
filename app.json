@@ -5,7 +5,7 @@
     "pages/book/book",
     "pages/action/action",
     "pages/about/about",
-    "pages/teacher/teacher",
+    "pages/spec_food/spec_food",
     "pages/actionlist/actionlist",
     "pages/login/login",
     "pages/logs/logs",
@@ -15,7 +15,10 @@
     "pages/admin_mgr/admin_mgr",
     "pages/me/me",
     "pages/modify_user_info/modify_user_info",
-    "pages/edit_activity_about_scene/edit_activity_about_scene"
+    "pages/edit_activity_about_scene/edit_activity_about_scene",
+    "pages/article_mgr/article_mgr",
+    "pages/edit_spec_food/edit_spec_food",
+    "pages/edit_scene_activity/edit_scene_activity"
   ],
   "window": {
     "usingComponents": {},

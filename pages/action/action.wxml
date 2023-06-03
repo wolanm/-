@@ -1,11 +1,10 @@
 <view class="zjn">
   <view class="scenic-spot-list">
    <block wx:for="{{gonglueList}}">
-     <view class="scenic-spot-item" data-id="{{item.id}} " bindtap="onScenicSpotTap">
+     <view class="scenic-spot-item" data-id="{{item.id}}" bindtap="onScenicSpotTap">
       <image class="image" src="{{item.image}}"></image>
       <view class="text-container">
       <view class="name">{{item.name}}</view>
-      <view class="gaishu">{{item.gaishu}}</view>
       </view>
     </view>
     </block>
