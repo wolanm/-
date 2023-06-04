@@ -1,38 +1,77 @@
 // pages/book/book.js
+const app = getApp()
+const db = wx.cloud.database()
+
 Page({
   data: {
-    dates: ['今天', '明天', '后天'],
-    times: ['上午07:00~12:00', '下午12:00~17:00', '晚上17:00~22:00'],
-    selectedDate: '今天',
-    selectedTime: '上午07:00~12:00',
-    capacities: [
-      [20000, 30000, 20000],
-      [20000, 30000, 20000],
-      [20000, 30000, 20000]
-    ],
+    dates: [],
+    times: [],
+    selectedDate: '',
+    selectedTime: '',
+    cap: -1,
     // 预约信息
+    name: '',
+    sceneId: '',
     dateIndex: 0,
     timeIndex: 0,
     lastname: '',
     phone: ''
   },
-  onLoad: function (options) {
-    const name = options.name;
-    const opentime = options.opentime;
-    const address = options.address;
 
-    wx.setNavigationBarTitle({
-      title: name
-    });
-    this.setData({
-      name: name,
-      opentime:opentime,
-      address:address,
-    });
+  formatDate() {
+    // 获取当前日期
+    var date = new Date();
+    dates = []
+    for (let i = 0; i < 3; ++i) {
+      // 获取当前月份
+      var nowMonth = date.getMonth() + 1;
+      // 获取当前是几号
+      var strDate = date.getDate();
+      // 添加分隔符“-”
+      var seperator = "-";
+      // 对月份进行处理，1-9月在前面添加一个“0”
+      if (nowMonth >= 1 && nowMonth <= 9) {
+        nowMonth = "0" + nowMonth;
+      }
+      // 对月份进行处理，1-9号在前面添加一个“0”
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+      }
+      // 最后拼接字符串，得到一个格式为(yyyy-MM-dd)的日期
+      var nowDate = date.getFullYear() + seperator + nowMonth + seperator + strDate;
+      dates.push(nowDate)
+      date.setDate(date.getDate() + 1)
+    }
+
+    return dates
+  },
+
+  onLoad: function (options) {
+    var that = this
+    db.collection('scenic_spots_info').where({
+      _id: options.id
+    }).get().then(res => {
+      wx.setNavigationBarTitle({
+        title: res.data[0].name
+      });
+      
+      dates = this.formatDate()
+
+      that.setData({
+        name: res.data[0].name,
+        sceneId: res.data[0]._id,
+        opentime: res.data[0].opentime,
+        address: res.data[0].address,
+        times: res.data[0].reservetime,
+        selectedTime: res.data[0].reservetime[0],
+        dates: dates,
+        selectedDate: dates[0],
+        cap: res.data[0].capacity
+      });
+    })
   },
 
   bindDateChange: function(e) {
-
     this.setData({
       dateIndex: e.detail.value,
       selectedDate: this.data.dates[e.detail.value],
@@ -61,9 +100,16 @@ Page({
     })
   },
 
+  delay(milSec) {
+    return new Promise(resolve => {
+      setTimeout(resolve, milSec)
+    })
+  },
+
   // 预约
-  reserve: function() {
+  async reserve() {
     // 获取预约信息
+    var that = this
     var dateIndex = this.data.dateIndex
     var timeIndex = this.data.timeIndex
     var lastname = this.data.lastname
@@ -73,42 +119,86 @@ Page({
     if (lastname == '' || phone == '') {
       wx.showToast({
         title: '请填写完整信息',
-        icon: 'none'
+        icon: 'error',
+        duration: 1500
       })
       return
     }
 
+    // 通过电话号码判断是否重复预约
+    let query_phone_res = await db.collection('meet_info').where({
+      phone: phone,
+      sceneId: that.data.sceneId
+    }).get()
+    if (query_phone_res.data.length > 0) {
+      wx.showToast({
+        title: '请勿重复预约',
+        icon: 'error',
+        duration: 1500
+      })
+
+      return
+    }
+
     // 检查剩余容量是否足够
-    var capacities = this.data.capacities
-    var capacity = capacities[dateIndex][timeIndex]
-    if (capacity <= 0) {
+    var cap = this.data.cap
+    if (cap <= 0) {
       wx.showToast({
         title: '该时段预约已满',
-        icon: 'none'
+        icon: 'error',
+        duration: 1500
       })
       return
     }
 
     // 更新剩余容量
-    capacities[dateIndex][timeIndex] = capacity - 1
+    cap--
     this.setData({
-      capacities: capacities
+      cap: cap
     })
+    await db.collection('scenic_spots_info').where({
+      _id: that.data.sceneId
+    }).update({data:{capacity: cap}})
 
     // 存储预约信息
-    var app = getApp()
-    app.globalData.reservation.date = this.data.dates[dateIndex]
-    app.globalData.reservation.time = this.data.times[timeIndex]
-    app.globalData.reservation.lastname = lastname
-    app.globalData.reservation.phone = phone
+    let number = -1
+    while (1) {
+      number = Math.floor(Math.random() * 1000000+10)
+      var flag = false
+      await db.collection('meet_info').where({
+        number: number
+      }).get().then(res => {
+        if (res.data.length === 0) {
+          flag = true
+        }
+      })
+      
+      if (flag) {
+        break
+      }
+    }
      // 提交预约信息到服务器
-    // ...
-    wx.showToast({
+    await db.collection('meet_info').add({
+      data: {
+        lastname: lastname,
+        phone: phone,
+        meetTime: that.data.dates[dateIndex] + ' ' + that.data.times[timeIndex],
+        scenicName: that.data.name,
+        sceneId: that.data.sceneId,
+        number: number
+      }
+    })
+    
+    await wx.showToast({
       title: '预约成功',
+      icon: 'success',
+      duration: 1500
     });
-    console.log(lastname)
+
+    await this.delay(1500)
+
     wx.navigateTo({
-      url: `/pages/qrcode/qrcode?lastname=${lastname}&phone=${phone}`
+      url: `/pages/qrcode/qrcode?lastname=${lastname}&phone=${phone}&number=${number}&scenicName=${that.data.name}`
     })
   },
 

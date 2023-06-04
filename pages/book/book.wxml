@@ -6,7 +6,7 @@
          <view class="icon">
             <image src="/image/icon-clock.png" class="icon-postion"></image>
          </view>
-         <view class="cell-bd">{{opentime}}</view>
+         <view class="cell-bd">开放时间: {{opentime}}</view>
       </view>
       <view class="wx-cell">
          <view class="icon">
@@ -36,13 +36,13 @@
   </picker>
   </view>
   <view class="section">
-    剩余容量：{{capacities[dateIndex][timeIndex]}}
+    剩余容量：{{cap}}
   </view>
   <view class="youke">
     游客信息
   </view>
  <view class="section" data-name="{{lastname}}" >
-   <input class="input" placeholder="请输入姓名" bindinput="bindNameInput" />
+   <input class="input" placeholder="请输入姓名" bindinput="bindNameInput"/>
   </view>
   <view class="section" data-phone="{{phone}}">
     <input class="input" placeholder="请输入电话号码" bindinput="bindPhoneInput" />

@@ -1,0 +1,75 @@
+<!--pages/edit_scenic_spot/edit_scenic_spot.wxml-->
+<view class="page-view">
+  <form bindsubmit="onSubmit" style="height: 100%; width: 100%;">
+    <view class="spot-name-view">
+      <view class="spot-name-text-view">景区名称</view>
+      <input class="spot-name-input-view" type="text" name="name" />
+    </view>
+    <view class="spot-level-view">
+      <view class="spot-level-text-view">景区等级</view>
+      <picker class="spot-level-input-view" range="{{scenicLevels}}" mode="selector" bindchange="selectorChange">{{selectedLevel}}</picker>
+    </view>
+    <view class="spot-gaisu-view">
+      <view class="spot-gaisu-text-view">景区概述</view>
+      <textarea class="spot-gaisu-input-view" name="gaishu"></textarea>
+    </view>
+    <view class="spot-opentime-view">
+      <view class="spot-opentime-text-view">开放时间</view>
+      <picker class="spot-opentime-input-view" mode="time" data-time="startTime" bindchange="timeChange">
+        开始时间:{{startTime}}
+      </picker>
+      <picker class="spot-opentime-input-view" mode="time" data-time="endTime" bindchange="timeChange">
+        结束时间:{{endTime}}
+      </picker>
+    </view>
+    <view class="spot-reservetime-view">
+      <view class="spot-reservetime-text-view">预约时段</view>
+      <scroll-view class="spot-reservetime-scroll-view" scroll-y="true">
+        <view class="spot-reservetime-pertime-text-view">时段1:</view>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveStartTime1" bindchange="timeChange">
+          开始时间:{{reserveStartTime1}}
+        </picker>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveEndTime1" bindchange="timeChange">
+          结束时间:{{reserveEndTime1}}
+        </picker>
+        <view class="spot-reservetime-pertime-text-view">时段2:</view>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveStartTime2" bindchange="timeChange">
+          开始时间:{{reserveStartTime2}}
+        </picker>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveEndTime2" bindchange="timeChange">
+          结束时间:{{reserveEndTime2}}
+        </picker>
+        <view class="spot-reservetime-pertime-text-view">时段3:</view>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveStartTime3" bindchange="timeChange">
+          开始时间:{{reserveStartTime3}}
+        </picker>
+        <picker class="spot-reservetime-input-view" mode="time" data-time="reserveEndTime3" bindchange="timeChange">
+          结束时间:{{reserveEndTime3}}
+        </picker>
+      </scroll-view>
+      <view class="spot-reservetime-tip-view">
+        <image src="/image/alarm.png" style="width: 50rpx; height: 50rpx; position: relative; top: -10rpx;"></image>
+        <view>请按序设置时段，需要几个就设置几个</view>
+      </view>
+    </view>
+    <view class="spot-reserve-view">
+      <view class="spot-reserve-text-view">预约备注</view>
+      <input class="spot-reserve-input-view" type="text" name="reserve" />
+    </view>
+    <view class="spot-reserve-capacity-view">
+      <view class="spot-reserve-capacity-text-view">预约容量</view>
+      <input class="spot-reserve-capacity-input-view" type="number" name="capacity" />
+    </view>
+    <view class="spot-address-view">
+      <view class="spot-address-text-view">景区地址</view>
+      <input class="spot-address-input-view" type="text" name="address" />
+    </view>
+    <view class="spot-img-view">
+      <view class="spot-img-text-view">景区图片</view>
+      <view class="spot-imgList-view" wx:for="{{imgList}}" wx:for-item='imgUrl' wx:for-index='index'>
+        <image wx:if="{{index < 1}}" class="spot-img-item-view" src="{{imgUrl}}" data-index="{{index}}" bindtap="selectImg"></image>
+      </view>
+    </view>
+    <button type="primary" form-type="submit">保存</button>
+  </form>
+</view>

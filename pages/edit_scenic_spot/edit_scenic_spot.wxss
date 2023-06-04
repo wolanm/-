@@ -1,0 +1,221 @@
+/* pages/edit_scenic_spot/edit_scenic_spot.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.page-view {
+  height: 100%;
+  width: 100%;
+}
+
+.spot-name-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-name-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-name-input-view {
+  height: 100%;
+  width: 77%;
+  padding-left: 1%;
+}
+
+.spot-level-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-level-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-level-input-view {
+  height: 100%;
+  width: 77%;
+  padding-left: 1%;
+  position: relative;
+  top: 22rpx
+}
+
+.spot-gaisu-view {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-gaisu-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-gaisu-input-view {
+  height:90%;
+  width: 77%;
+  padding-left: 1%;
+}
+
+.spot-opentime-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-opentime-text-view {
+  padding-left: 1%;
+  width: 40%;
+}
+
+.spot-opentime-input-view {
+  height:90%;
+  width: 77%;
+  padding-left: 1%;
+  position: relative;
+  top: 28%;
+  color:#FF7F50;
+}
+
+.spot-reservetime-view {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-reservetime-text-view {
+  width: 20%;
+  padding-left: 1%;
+  display: inline-block;
+}
+
+.spot-reservetime-scroll-view {
+  height: 80%;
+  width: 75%;
+  position: relative;
+  top: 10%;
+}
+
+.spot-reservetime-pertime-text-view {
+  width: auto;
+  height: 30%;
+  display: inline-block;
+}
+
+.spot-reservetime-input-view {
+  height: 30%;
+  padding-left: 3%;
+  display: inline-block;
+  color:	#FF7F50;
+}
+
+.spot-reservetime-tip-view {
+  height: 40rpx;
+  width: 100%;
+  display: flex;
+  font-size: 25rpx;
+  color: red;
+}
+
+.spot-reserve-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-reserve-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-reserve-input-view {
+  height: 100%;
+  width: 77%;
+  padding-left: 1%;
+}
+
+.spot-reserve-capacity-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-reserve-capacity-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-reserve-capacity-input-view {
+  height: 100%;
+  width: 77%;
+  padding-left: 1%;
+}
+
+.spot-address-view {
+  height: 7%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  font-size: 30rpx;
+}
+
+.spot-address-text-view {
+  padding-left: 1%;
+  width: 20%;
+}
+
+.spot-address-input-view {
+  height: 100%;
+  width: 77%;
+  padding-left: 1%;
+}
+
+.spot-img-view {
+  height: 30%;
+  width: 100%;
+  font-size: 30rpx;
+}
+
+.spot-img-text-view {
+  padding-left: 1%;
+}
+
+.spot-imgList-view {
+  height: 300rpx;
+  width: 300rpx;
+}
+
+.spot-img-item-view {
+  height: 100%;
+  width: 100%;
+}

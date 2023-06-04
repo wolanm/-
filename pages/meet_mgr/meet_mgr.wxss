@@ -1,0 +1,106 @@
+/* pages/meet_mgr/meet_mgr.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.page-view {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.search-view {
+  height: 7%;
+  width: 90%;
+  margin-top: 20rpx;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  border-radius: 20rpx;
+  background-color: rgb(243, 237, 237);
+}
+
+.search-img-view {
+  height: 45rpx; 
+  width: 45rpx;
+  position: relative;
+  left: 20rpx;
+}
+
+.search-input-view {
+  width: 70%;
+  position: relative;
+  left: 40rpx;
+}
+
+.search-cancel-view {
+  height: 100%; 
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DCDCDC;
+  border-radius: 20rpx;
+  position: relative;
+  left: 40rpx;
+}
+
+.info-count-view {
+  height: 7%;
+  width: 100%;
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1rpx solid gray;
+  color: gray;
+}
+
+.show-item-view {
+  height: 400rpx;
+  width: 92%;
+  position: relative;
+  left: 4%;
+  border: 1rpx solid#DCDCDC;
+}
+
+.show-item-title-view {
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  background-color:	#F5F5F5;
+  position: relative;
+  left: 10rpx;
+}
+
+.show-item-info-view {
+  height: 240rpx;
+  width: 100%;
+  position: relative;
+  left: 10rpx;
+}
+
+.show-item-line-view {
+  height: 25%;
+  width: 100%;
+  position: relative;
+  left: 30rpx;
+  font-size: 35rpx;
+}
+
+.meet-cancel-view {
+  height: 80rpx;
+  width: 100rpx;
+  position: relative;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#f3f3f3;
+  color: red;
+}

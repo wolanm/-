@@ -18,7 +18,9 @@
     "pages/edit_activity_about_scene/edit_activity_about_scene",
     "pages/article_mgr/article_mgr",
     "pages/edit_spec_food/edit_spec_food",
-    "pages/edit_scene_activity/edit_scene_activity"
+    "pages/edit_scene_activity/edit_scene_activity",
+    "pages/edit_scenic_spot/edit_scenic_spot",
+    "pages/meet_mgr/meet_mgr"
   ],
   "window": {
     "usingComponents": {},

@@ -49,5 +49,17 @@ Page({
     wx.navigateTo({
       url: '/pages/edit_spec_food/edit_spec_food',
     })
+  },
+
+  editScenicSpot() {
+    wx.navigateTo({
+      url: '/pages/edit_scenic_spot/edit_scenic_spot',
+    })
+  },
+
+  manageMeetInfo() {
+    wx.navigateTo({
+      url: '/pages/meet_mgr/meet_mgr',
+    })
   }
 })

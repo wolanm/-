@@ -1,5 +1,6 @@
 /* pages/qrcode/qrcode.wxss */
 .container{
   display: flex; 
-  margin-top: -80px;
+  align-items: center;
+  justify-content: center;
 }

@@ -12,6 +12,10 @@
   position:relative;
 }
 
+.list {
+  width: 50%;
+}
+
 .list-photo{
   width: 400rpx;
   height: 400rpx;

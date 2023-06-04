@@ -32,11 +32,11 @@
       <text class="options-grid-title-text-view">功能管理</text>
     </view>
     <view class="options-grid-content-view">
-      <view class="options-grid-item-view">
+      <view class="options-grid-item-view" bindtap="manageMeetInfo">
         <image class="options-grid-item-img-view" src="/image/meet.png"></image>
         <view class="options-grid-item-text-view">预约管理</view>
       </view>
-      <view class="options-grid-item-view">
+      <view class="options-grid-item-view" bindtap="editScenicSpot">
         <image class="options-grid-item-img-view" src="/image/view.png"></image>
         <view class="options-grid-item-text-view">景点管理</view>
       </view>

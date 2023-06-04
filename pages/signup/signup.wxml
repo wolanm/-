@@ -2,7 +2,7 @@
 <view class="zjn">
   <view class="scenic-spot-list">
    <view wx:for="{{scenicSpots}}" style="width: 100%;">
-      <view class="scenic-spot-item" data-id="{{item.id}} " data-name="{{item.name}}" data-image="{{item.image}}" data-opentime="{{item.opentime}}" data-address="{{item.address}}" bindtap="onScenicSpotTap">
+      <view class="scenic-spot-item" data-id="{{item.id}}" bindtap="onScenicSpotTap">
         <image class="image" src="{{item.image}}"></image>
         <view class="text-container">
           <view class="name">{{item.name}}</view>
@@ -10,7 +10,7 @@
             <view class="level">{{item.level}}</view>
             <view class="gaishu">{{item.gaishu}}</view>
           </view>
-          <view class="opentime">{{item.opentime}}</view>
+          <view class="opentime">开放时间: {{item.opentime}}</view>
           <view class="forth">
             <view class="state">{{item.state}}</view>
             <view class="reserve">{{item.reserve}}</view>

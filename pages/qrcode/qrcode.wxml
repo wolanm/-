@@ -1,13 +1,16 @@
 <!--pages/qrcode/qrcode.wxml-->
 <view class="container">
-游客预约信息
-<view class="zjn">
-预约号:{{number}}
-</view>
-<view class="zjn">
-预约人:{{lastname}}
-</view>
-<view class="zjn">
-电话号码:{{phone}}
-</view>
+  游客预约信息
+  <view class="zjn">
+  预约景点:  {{name}}
+  </view>
+  <view class="zjn">
+  预约号:  {{number}}
+  </view>
+  <view class="zjn">
+  预约人:  {{lastname}}
+  </view>
+  <view class="zjn">
+  电话号码:  {{phone}}
+  </view>
 </view>
