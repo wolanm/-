@@ -36,19 +36,19 @@
         <image class="options-grid-item-img-view" src="/image/meet.png"></image>
         <view class="options-grid-item-text-view">预约管理</view>
       </view>
-      <view class="options-grid-item-view" bindtap="editScenicSpot">
+      <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="0">
         <image class="options-grid-item-img-view" src="/image/view.png"></image>
         <view class="options-grid-item-text-view">景点管理</view>
       </view>
-      <view class="options-grid-item-view" bindtap="editActivityAboutScene">
+      <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="1">
         <image class="options-grid-item-img-view" src="/image/strategy.png"></image>
         <view class="options-grid-item-text-view">攻略管理</view>
       </view>
-      <view class="options-grid-item-view" bindtap="editSceneActivity">
+      <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="2">
         <image class="options-grid-item-img-view" src="/image/condition.png"></image>
         <view class="options-grid-item-text-view">动态管理</view>
       </view>
-      <view class="options-grid-item-view" bindtap="editSpecFood">
+      <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="3">
         <image class="options-grid-item-img-view" src="/image/food.png"></image>
         <view class="options-grid-item-text-view">美食特产管理</view>
       </view>

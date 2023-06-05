@@ -61,5 +61,12 @@ Page({
     wx.navigateTo({
       url: '/pages/meet_mgr/meet_mgr',
     })
+  },
+
+  manageArticleInfo(e) {
+    var pageType = e.currentTarget.dataset.pagetype
+    wx.navigateTo({
+      url: `/pages/article_mgr/article_mgr?pageType=${pageType}`,
+    })
   }
 })
