@@ -22,7 +22,7 @@ Page({
         _id: options.id
       }).get().then(res => {
         var imgList = res.data[0].imgList
-        imgList.push(that.data.imgList[0])
+        imgList.push(that.data.imgList[that.data.imgList.length - 1])
         that.setData({
           title: res.data[0].title,
           content: res.data[0].content,
