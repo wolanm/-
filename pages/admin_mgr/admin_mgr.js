@@ -1,4 +1,5 @@
 // pages/admin_mgr/admin_mgr.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,6 +8,11 @@ Page({
   data: {
     adminName: '',
     adminPhone: '',
+    meetCnt: 0,
+    spotCnt: 0,
+    guideCnt: 0,
+    activityCnt: 0,
+    foodCnt: 0
   },
 
   /**
@@ -23,7 +29,32 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    var that = this
+    db.collection('meet_info').get().then(res => {
+      that.setData({
+        meetCnt: res.data.length
+      })
+    })
+    db.collection('scenic_spots_info').get().then(res => {
+      that.setData({
+        spotCnt: res.data.length
+      })
+    })
+    db.collection('scenic_guide_info').get().then(res => {
+      that.setData({
+        guideCnt: res.data.length
+      })
+    })
+    db.collection('scene_activity_info').get().then(res => {
+      that.setData({
+        activityCnt: res.data.length
+      })
+    })
+    db.collection('spec_food_info').get().then(res => {
+      that.setData({
+        foodCnt: res.data.length
+      })
+    })
   },
 
   /**

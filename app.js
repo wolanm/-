@@ -5,7 +5,6 @@ App({
     wx.cloud.init({
       env: 'cloud1-8glw5m5v07e9ee9d'
     })
-
     // 获取用户的 openid
     var that = this
     wx.cloud.callFunction({

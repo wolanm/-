@@ -3,7 +3,7 @@
   <form bindsubmit="onSubmit" style="height: 100%; width: 100%;">
     <view class="spot-name-view">
       <view class="spot-name-text-view">景区名称</view>
-      <input class="spot-name-input-view" type="text" name="name" />
+      <input class="spot-name-input-view" value="{{name}}" type="text" name="name" />
     </view>
     <view class="spot-level-view">
       <view class="spot-level-text-view">景区等级</view>
@@ -11,7 +11,7 @@
     </view>
     <view class="spot-gaisu-view">
       <view class="spot-gaisu-text-view">景区概述</view>
-      <textarea class="spot-gaisu-input-view" name="gaishu"></textarea>
+      <textarea class="spot-gaisu-input-view" value="{{gaishu}}" name="gaishu"></textarea>
     </view>
     <view class="spot-opentime-view">
       <view class="spot-opentime-text-view">开放时间</view>
@@ -54,15 +54,19 @@
     </view>
     <view class="spot-reserve-view">
       <view class="spot-reserve-text-view">预约备注</view>
-      <input class="spot-reserve-input-view" type="text" name="reserve" />
+      <input class="spot-reserve-input-view" value="{{reserve}}" type="text" name="reserve" />
     </view>
     <view class="spot-reserve-capacity-view">
       <view class="spot-reserve-capacity-text-view">预约容量</view>
-      <input class="spot-reserve-capacity-input-view" type="number" name="capacity" />
+      <input class="spot-reserve-capacity-input-view" value="{{capacity}}" type="number" name="capacity" />
+    </view>
+    <view class="spot-reserve-view">
+      <view class="spot-reserve-text-view">景区状态</view>
+      <input class="spot-reserve-input-view" value="{{state}}" type="text" name="state" />
     </view>
     <view class="spot-address-view">
       <view class="spot-address-text-view">景区地址</view>
-      <input class="spot-address-input-view" type="text" name="address" />
+      <input class="spot-address-input-view" value="{{address}}" type="text" name="address" />
     </view>
     <view class="spot-img-view">
       <view class="spot-img-text-view">景区图片</view>

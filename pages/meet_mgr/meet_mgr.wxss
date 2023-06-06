@@ -60,7 +60,7 @@ page {
 }
 
 .show-item-view {
-  height: 400rpx;
+  height: auto;
   width: 92%;
   position: relative;
   left: 4%;
@@ -79,15 +79,16 @@ page {
 }
 
 .show-item-info-view {
-  height: 240rpx;
+  height: auto;
   width: 100%;
   position: relative;
   left: 10rpx;
 }
 
 .show-item-line-view {
-  height: 25%;
-  width: 100%;
+  height: auto;
+  width: calc(100% - 50rpx);
+  margin: 20rpx 0 20rpx 0;
   position: relative;
   left: 30rpx;
   font-size: 35rpx;
@@ -96,6 +97,7 @@ page {
 .meet-cancel-view {
   height: 80rpx;
   width: 100rpx;
+  margin-bottom: 20rpx;
   position: relative;
   left: 30rpx;
   display: flex;

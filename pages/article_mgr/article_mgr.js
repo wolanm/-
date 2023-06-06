@@ -12,6 +12,18 @@ const collectionMap =  new Map([
   ["2", 'scene_activity_info'],
   ["3", 'spec_food_info']
 ])
+const placeholderMap =  new Map([
+  ["0", '搜索景区名称'],
+  ["1", '搜索攻略名称'],
+  ["2", '搜索活动名称'],
+  ["3", '搜索美食名称']
+])
+const articleNameMap =  new Map([
+  ["0", '景点'],
+  ["1", '景点攻略'],
+  ["2", '景区动态'],
+  ["3", '美食特产']
+])
 
 Page({
 
@@ -22,7 +34,9 @@ Page({
     articleInfoList: [],
     showList: [],
     page: '',
-    coll: ''
+    coll: '',
+    placeholder: '',
+    articleName: '',
   },
 
   /**
@@ -33,6 +47,8 @@ Page({
     var pageType = options.pageType
     var page = pageMap.get(pageType)
     var coll = collectionMap.get(pageType)
+    var placeholder = placeholderMap.get(pageType)
+    var articleName = articleNameMap.get(pageType)
     
     var articleInfoList = []
     switch(pageType) {
@@ -52,7 +68,6 @@ Page({
               reserve: res.data[idx].reserve,
               state: res.data[idx].state
             }
-            console.log(articleObj)
 
             articleInfoList.push(articleObj)
           }
@@ -61,7 +76,9 @@ Page({
             page: page,
             coll: coll,
             articleInfoList: articleInfoList,
-            showList: articleInfoList
+            showList: articleInfoList,
+            placeholder: placeholder,
+            articleName: articleName
           })
         })
         break;
@@ -72,7 +89,8 @@ Page({
               id: res.data[idx]._id,
               title: res.data[idx].title,
               content: res.data[idx].content,
-              imgList: res.data[idx].imgList
+              imgList: res.data[idx].imgList,
+              placeholder: placeholder
             }
 
             articleInfoList.push(articleObj)
@@ -82,7 +100,9 @@ Page({
             page: page,
             coll: coll,
             articleInfoList: articleInfoList,
-            showList: articleInfoList
+            showList: articleInfoList,
+            placeholder: placeholder,
+            articleName: articleName
           })
         })
         break;
@@ -94,7 +114,7 @@ Page({
               title: res.data[idx].title,
               content: res.data[idx].content,
               imgList: res.data[idx].imgList,
-              location: res.data[idx].location
+              address: res.data[idx].location
             }
 
             articleInfoList.push(articleObj)
@@ -104,7 +124,9 @@ Page({
             page: page,
             coll: coll,
             articleInfoList: articleInfoList,
-            showList: articleInfoList
+            showList: articleInfoList,
+            placeholder: placeholder,
+            articleName: articleName
           })
         })
         break;
@@ -125,7 +147,9 @@ Page({
             page: page,
             coll: coll,
             articleInfoList: articleInfoList,
-            showList: articleInfoList
+            showList: articleInfoList,
+            placeholder: placeholder,
+            articleName: articleName
           })
         })
         break;
@@ -146,5 +170,50 @@ Page({
 
   },
 
- 
+  search(e) {
+    var word = e.detail.value
+    var showList = []
+    for (const v of this.data.articleInfoList) {
+      if (v.title.search(word) !== -1) {
+        showList.push(v)
+      }
+    }
+
+    this.setData({showList: showList})
+  },
+
+  cancelSearch() {
+    this.setData({
+      inputValue: '',
+      showList: this.data.meetInfoList
+    })
+  },
+
+  createArticle() {
+    var page = this.data.page
+    wx.navigateTo({
+      url: `/pages/${page}/${page}`,
+    })
+  },
+
+  editArticle(e) {
+    var index = e.currentTarget.dataset.index
+    var page = this.data.page
+    var id = this.data.showList[index].id
+    wx.navigateTo({
+      url: `/pages/${page}/${page}?id=${id}`,
+    })
+  },
+
+  deleteArticle(e) {
+    var that = this
+    var index = e.currentTarget.dataset.index
+    var articleInfoList = this.data.articleInfoList
+    db.collection(that.data.coll).where({
+      _id: articleInfoList[index].id
+    }).remove().then(res => {
+      articleInfoList.splice(index, 1)
+      that.setData({articleInfoList: articleInfoList})
+    })
+  }
 })

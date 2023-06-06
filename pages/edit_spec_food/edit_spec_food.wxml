@@ -3,11 +3,11 @@
   <form bindsubmit="onSubmit" style="height: 100%; width: 100%;">
     <view class="title-item-view">
       <view class="title-item-text-view">标题</view>
-      <input class="title-item-input-view" type="text" name="title" />
+      <input class="title-item-input-view" value="{{title}}" type="text" name="title" />
     </view>
     <view class="content-item-view" style="height: 30%;">
       <view class="content-item-text-view">内容</view>
-      <textarea class="content-item-input-view" type="text" maxlength="-1" name="content"></textarea>
+      <textarea class="content-item-input-view" value="{{content}}" type="text" maxlength="-1" name="content"></textarea>
     </view>
     <view class="image-item-view">
       <view class="image-item-text-view">图片上传</view>

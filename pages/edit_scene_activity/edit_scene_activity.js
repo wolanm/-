@@ -7,6 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title: '',
+    content: '',
+    location: '',
     imgList:['/image/add.png']
   },
 
@@ -14,13 +17,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var that = this
+    if (typeof(options.id) !== 'undefined') {
+      db.collection('scene_activity_info').where({
+        _id: options.id
+      }).get().then(res => {
+        var imgList = res.data[0].imgList
+        imgList.push(that.data.imgList[0])
+        that.setData({
+          title: res.data[0].title,
+          content: res.data[0].content,
+          location: res.data[0].location,
+          imgList: imgList
+        })
+      })
+    } else {
+      this.setData({
+        title: '',
+      content: '',
+      location: '',
+      imgList:['/image/add.png']
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    // 获取当前小程序的页面栈 
+    let pages = getCurrentPages(); 
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1];
+    // 给 onLoad 传入 options 参数，执行 onLoad
+    this.onLoad(currentPage.options)
   },
 
   /**

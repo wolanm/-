@@ -5,24 +5,24 @@
     <view class="person-name-view">{{adminName}}</view>
   </view>
   <view class="statistic-view">
-    <view class="statistic-item-view">
-      <view class="statistic-item-text-view">{{1}}</view>
+    <view class="statistic-item-view" bindtap="manageMeetInfo">
+      <view class="statistic-item-text-view">{{meetCnt}}</view>
       <view class="statistic-item-text-view">预约数</view>
     </view>
-    <view class="statistic-item-view">
-      <view class="statistic-item-text-view">{{1}}</view>
+    <view class="statistic-item-view" bindtap="manageArticleInfo" data-pageType="0">
+      <view class="statistic-item-text-view">{{spotCnt}}</view>
       <view class="statistic-item-text-view">景点数</view>
     </view>
-    <view class="statistic-item-view">
-      <view class="statistic-item-text-view">{{1}}</view>
+    <view class="statistic-item-view" bindtap="manageArticleInfo" data-pageType="1">
+      <view class="statistic-item-text-view">{{guideCnt}}</view>
       <view class="statistic-item-text-view">攻略数</view>
     </view>
-    <view class="statistic-item-view">
-      <view class="statistic-item-text-view">{{1}}</view>
+    <view class="statistic-item-view" bindtap="manageArticleInfo" data-pageType="2">
+      <view class="statistic-item-text-view">{{activityCnt}}</view>
       <view class="statistic-item-text-view">动态数</view>
     </view>
-    <view class="statistic-item-view">
-      <view class="statistic-item-text-view">{{1}}</view>
+    <view class="statistic-item-view" bindtap="manageArticleInfo" data-pageType="3">
+      <view class="statistic-item-text-view">{{foodCnt}}</view>
       <view class="statistic-item-text-view">美食特产数</view>
     </view>
   </view>

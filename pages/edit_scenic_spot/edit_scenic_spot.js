@@ -7,6 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name: '',
+    capacity: NaN,
+    address: '',
+    state: '',
     scenicLevels : ['国家级', '5A', '4A', '3A', '2A', '1A'],
     selectedLevel: '5A',
     startTime: '00:00',
@@ -27,7 +31,80 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if (typeof(options.id) !== 'undefined') {
+      var that = this
+      db.collection('scenic_spots_info').where({
+        _id: options.id
+      }).get().then(res => {
+        var imgList = res.data[0].image
+        imgList.push(that.data.imgList[0])
+        var opentime = res.data[0].opentime
+        var reservetime = res.data[0].reservetime
+        opentimeSplitRes = opentime.split('~')
+        var startTime = opentimeSplitRes[0]
+        var endTime = opentimeSplitRes[1]
+        for (idx in reservetime) {
+          reservetimeSplitRes = reservetime[idx].split('~')
+          switch(idx) {
+            case '0':
+              that.setData({
+                reserveTimeChangedFlag1 : true,
+                reserveStartTime1 : reservetimeSplitRes[0],
+                reserveEndTime1 : reservetimeSplitRes[1]
+              })
+              break
+            case '1': 
+            that.setData({
+              reserveTimeChangedFlag2 : true,
+              reserveStartTime2 : reservetimeSplitRes[0],
+              reserveEndTime2 : reservetimeSplitRes[1]
+            })
+              break
+            case '2':
+              that.setData({
+                reserveTimeChangedFlag3 : true,
+                reserveStartTime3 : reservetimeSplitRes[0],
+                reserveEndTime3 : reservetimeSplitRes[1]
+              })
+              break
+          }
+        }
+        
+        that.setData({
+          name: res.data[0].name,
+          selectedLevel: res.data[0].level,
+          imgList: imgList,
+          capacity: res.data[0].capacity,
+          reserve: res.data[0].reserve,
+          address: res.data[0].address,
+          gaishu: res.data[0].gaishu,
+          startTime: startTime,
+          endTime: endTime,
+          state: res.data[0].state
+        })
+      })
+    } else {
+      this.setData({
+        name: '',
+        capacity: NaN,
+        address: '',
+        state: '',
+        scenicLevels : ['国家级', '5A', '4A', '3A', '2A', '1A'],
+        selectedLevel: '5A',
+        startTime: '00:00',
+        endTime: '00:00',
+        reserveStartTime1: '00:00',
+        reserveStartTime2: '00:00',
+        reserveStartTime3: '00:00',
+        reserveEndTime1: '00:00',
+        reserveEndTime2: '00:00',
+        reserveEndTime3: '00:00',
+        reserveTimeChangedFlag1: false,
+        reserveTimeChangedFlag2: false,
+        reserveTimeChangedFlag3: false,
+        imgList:['/image/add.png']
+      })
+    }
   },
 
   /**
@@ -41,7 +118,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // 获取当前小程序的页面栈 
+    let pages = getCurrentPages(); 
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1];
+    // 给 onLoad 传入 options 参数，执行 onLoad
+    this.onLoad(currentPage.options)
   },
 
   selectorChange(e) {
@@ -63,7 +145,7 @@ Page({
       case 'reserveStartTime1':
         this.setData({
           reserveStartTime1: time,
-          reserveTimeChangedFlag1: true
+          reserveTimeChangedFlag2: true
         })
         break;
       case 'reserveStartTime2':
@@ -81,7 +163,7 @@ Page({
       case 'reserveEndTime1':
         this.setData({
           reserveEndTime1: time,
-          reserveTimeChangedFlag1: true
+          reserveTimeChangedFlag2: true
         })
         break;
       case 'reserveEndTime2':
@@ -124,7 +206,8 @@ Page({
     var address = e.detail.value.address
     var reserve = e.detail.value.reserve
     var cap = e.detail.value.capacity
-    if (name.length === 0 || gaishu.length === 0 || address.length === 0 || !this.data.reserveTimeChangedFlag1) {
+    var state = e.detail.value.state
+    if (name.length === 0 || gaishu.length === 0 || address.length === 0 || !this.data.reserveTimeChangedFlag2) {
       wx.showToast({
         title: '请填写内容',
         icon: 'error',
@@ -158,7 +241,6 @@ Page({
     }
 
     cap = parseInt(cap, 10)
-    console.log(cap)
     if (Object.is(cap, NaN) || cap <= 0) {
       wx.showToast({
         title: '请输入正确容量',
@@ -170,7 +252,7 @@ Page({
     }
 
     reserveTime = []
-    if (this.data.reserveTimeChangedFlag1) {
+    if (this.data.reserveTimeChangedFlag2) {
       reserveTime.push(this.data.reserveStartTime1 + '~' + this.data.reserveEndTime1)
       if (this.data.reserveTimeChangedFlag2) {
         reserveTime.push(this.data.reserveStartTime2 + '~' + this.data.reserveEndTime2)
@@ -189,7 +271,7 @@ Page({
         gaishu: gaishu,
         opentime: that.data.startTime + '~' + that.data.endTime,
         reservetime: reserveTime,
-        state: '免费开放',
+        state: state,
         reserve: reserve,
         capacity: cap,
         address: address

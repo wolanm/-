@@ -1,19 +1,28 @@
 <!--pages/article_mgr/article_mgr.wxml-->
 <view class="page-view">
+  <view class="create-article-view" bindtap="createArticle">
+    <image class="create-article-img-view" src="/image/add_article.png"></image>
+    <view class="create-article-text-view">创建{{articleName}}</view>
+  </view>
   <view class="search-view">
     <image class="search-img-view" src="/image/search.png"></image>
-    <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="搜索手机号" confirm-type="search" bindconfirm="search"/>
+    <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="{{placeholder}}" confirm-type="search" bindconfirm="search"/>
     <view class="search-cancel-view" bindtap="cancelSearch">取消</view>
   </view>
   <view class="info-count-view">共有{{showList.length}}条预约信息</view>
   <view class="show-item-view" wx:for="{{showList}}">
     <view class="show-item-title-view">{{item.title}}</view>
     <view class="show-item-info-view">
-      <view class="show-item-line-view" wx:if="{{page === 'edit_scenic_spot'}}">{{item.level}}</view>
+      <view class="show-item-line-view" style="color: #FF7F50;" wx:if="{{page === 'edit_scenic_spot'}}">{{item.level}}</view>
+      <view class="show-item-line-view" wx:if="{{page !== 'edit_scenic_spot'}}">{{item.content}}</view>
+      <image class="show-item-img-view" wx:if="{{page !== 'edit_scenic_spot'}}" src="{{item.imgList[0]}}"></image>
       <view class="show-item-line-view" wx:if="{{page === 'edit_scenic_spot'}}">容量:  {{item.capacity}}</view>
       <view class="show-item-line-view" wx:if="{{page === 'edit_scenic_spot'}}">开放时间:  {{item.opentime}}</view>
-      <view class="show-item-line-view" wx:if="{{page === 'edit_scenic_spot'}}">地址:  {{item.address}}</view>
+      <view class="show-item-line-view" wx:if="{{page === 'edit_scenic_spot' || page === 'edit_scene_activity'}}">地址:  {{item.address}}</view>
     </view>
-    <view class="meet-cancel-view" data-index="{{index}}" bindtap="cancelMeetInfo">核销</view>
+    <view class="btn-view">
+      <view class="meet-cancel-view" style="color: green" data-index="{{index}}" bindtap="editArticle">编辑</view>
+      <view class="meet-cancel-view" data-index="{{index}}" bindtap="deleteArticle">删除</view>
+    </view>
   </view>
 </view>
