@@ -4,20 +4,20 @@
     <view class="name">{{name}}</view>
       <view class="wx-cell">
          <view class="icon">
-            <image src="/image/icon-clock.png" class="icon-postion"></image>
+            <image src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/icon-clock.png" class="icon-postion"></image>
          </view>
          <view class="cell-bd">开放时间: {{opentime}}</view>
       </view>
       <view class="wx-cell">
          <view class="icon">
-            <image src="/image/icon-address.png" class="icon-postion"></image>
+            <image src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/icon-address.png" class="icon-postion"></image>
          </view>
          <view class="dizhi">
           <view class="cell-bd" >地址：{{address}}</view>
         </view>
       </view>
       <view class="navigate-view">
-        <image class="navigate-img-view" src="/image/navigate.png"></image>
+        <image class="navigate-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/navigate.png"></image>
         <view class="navigate-text-view" bindtap="navigate">立即导航</view>
       </view>
   </view>

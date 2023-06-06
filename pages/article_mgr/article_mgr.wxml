@@ -1,11 +1,11 @@
 <!--pages/article_mgr/article_mgr.wxml-->
 <view class="page-view">
   <view class="create-article-view" bindtap="createArticle">
-    <image class="create-article-img-view" src="/image/add_article.png"></image>
+    <image class="create-article-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add_article.png"></image>
     <view class="create-article-text-view">创建{{articleName}}</view>
   </view>
   <view class="search-view">
-    <image class="search-img-view" src="/image/search.png"></image>
+    <image class="search-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/search.png"></image>
     <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="{{placeholder}}" confirm-type="search" bindconfirm="search"/>
     <view class="search-cancel-view" bindtap="cancelSearch">取消</view>
   </view>

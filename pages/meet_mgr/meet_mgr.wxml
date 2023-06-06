@@ -1,7 +1,7 @@
 <!--pages/meet_mgr/meet_mgr.wxml-->
 <view class="page-view">
   <view class="search-view">
-    <image class="search-img-view" src="/image/search.png"></image>
+    <image class="search-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/search.png"></image>
     <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="搜索手机号" confirm-type="search" bindconfirm="search"/>
     <view class="search-cancel-view" bindtap="cancelSearch">取消</view>
   </view>

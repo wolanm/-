@@ -5,15 +5,15 @@ const db = wx.cloud.database()
 
 Page({
   data: {
-    a1src:'../../image/news_2.png',
-    a2src: '../../image/meet_1.png',
-    a3src: '../../image/news_1.png',
-    a4src: '../../image/news_3.png',
-    signupimg:'../../image/signup.png',
+    a1src:'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/news_2.png',
+    a2src: 'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/meet_1.png',
+    a3src: 'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/news_1.png',
+    a4src: 'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/news_3.png',
+    signupimg:'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/signup.png',
     imgUrls: [
-      '/image/lunbo1.jpg',
-      '/image/lunbo2.jpg',
-      '/image/lunbo3.jpg',
+      'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/lunbo1.jpg',
+      'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/lunbo2.jpg',
+      'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/lunbo3.jpg',
     ],
     indicatorDots: true,
     autoplay: true,

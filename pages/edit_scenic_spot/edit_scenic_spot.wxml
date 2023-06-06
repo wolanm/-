@@ -48,7 +48,7 @@
         </picker>
       </scroll-view>
       <view class="spot-reservetime-tip-view">
-        <image src="/image/alarm.png" style="width: 50rpx; height: 50rpx; position: relative; top: -10rpx;"></image>
+        <image src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/alarm.png" style="width: 50rpx; height: 50rpx; position: relative; top: -10rpx;"></image>
         <view>请按序设置时段，需要几个就设置几个</view>
       </view>
     </view>

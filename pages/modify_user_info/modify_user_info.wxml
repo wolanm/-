@@ -1,6 +1,6 @@
 <view class="page-view">
   <view class="img-view">
-    <image src="/image/me_open.jpg" style="height: 100%; width: 100%;"></image>
+    <image src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/me_open.jpg" style="height: 100%; width: 100%;"></image>
   </view>
   <form bindsubmit="onSubmit">
     <view class="userInfo-view">

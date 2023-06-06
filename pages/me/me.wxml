@@ -1,37 +1,37 @@
 <!--pages/me/me.wxml-->
 <view class="page-view">
   <view class="person-info-view" bindtap="onModifyPersonInfo">
-    <image class="person-img-view" src="/image/me_open.jpg"></image>
+    <image class="person-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/me_open.jpg"></image>
     <view class="person-name-view">{{userName}}</view>
   </view>
   <view class="option-view">
     <view class="option-item-view">
       <view class="option-item-img-view">
-        <image style="height: 70%; width: 100%" src="/image/yes.png"></image>
+        <image style="height: 70%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/yes.png"></image>
       </view>
       <text class="option-item-text-view ">所有预约</text>
       <view class="option-item-img-view">
-        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+        <image style="height: 100%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/arrow.png"></image>
       </view>
     </view>
     <view class="option-item-view" bindtap="onModifyPersonInfo">
       <view class="option-item-img-view">
-        <image style="height: 70%; width: 100%" src="/image/info.png"></image>
+        <image style="height: 70%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/info.png"></image>
       </view>
       <text class="option-item-text-view ">修改个人资料</text>
       <view class="option-item-img-view">
-        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+        <image style="height: 100%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/arrow.png"></image>
       </view>
     </view>
   </view>
   <view class="option-view">
     <view class="option-item-view"  bindtap="onAdminLogin">
       <view class="option-item-img-view">
-        <image style="height: 70%; width: 100%" src="/image/setting.png"></image>
+        <image style="height: 70%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/setting.png"></image>
       </view>
       <text class="option-item-text-view ">后台管理</text>
       <view class="option-item-img-view">
-        <image style="height: 100%; width: 100%" src="/image/arrow.png"></image>
+        <image style="height: 100%; width: 100%" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/arrow.png"></image>
       </view>
     </view>
   </view>

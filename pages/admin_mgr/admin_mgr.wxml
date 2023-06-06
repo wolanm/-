@@ -1,7 +1,7 @@
 <!--pages/admin_mgr/admin_mgr.wxml-->
 <view class="page-view">
   <view class="person-info-view">
-    <image class="person-img-view" src="/image/admin.png"></image>
+    <image class="person-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/admin.png"></image>
     <view class="person-name-view">{{adminName}}</view>
   </view>
   <view class="statistic-view">
@@ -28,35 +28,35 @@
   </view>
   <view class="options-grid-view">
     <view class="options-grid-title-view">
-      <image class="options-grid-title-img-view" src="/image/use.png"></image>
+      <image class="options-grid-title-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/use.png"></image>
       <text class="options-grid-title-text-view">功能管理</text>
     </view>
     <view class="options-grid-content-view">
       <view class="options-grid-item-view" bindtap="manageMeetInfo">
-        <image class="options-grid-item-img-view" src="/image/meet.png"></image>
+        <image class="options-grid-item-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/meet.png"></image>
         <view class="options-grid-item-text-view">预约管理</view>
       </view>
       <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="0">
-        <image class="options-grid-item-img-view" src="/image/view.png"></image>
+        <image class="options-grid-item-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/view.png"></image>
         <view class="options-grid-item-text-view">景点管理</view>
       </view>
       <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="1">
-        <image class="options-grid-item-img-view" src="/image/strategy.png"></image>
+        <image class="options-grid-item-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/strategy.png"></image>
         <view class="options-grid-item-text-view">攻略管理</view>
       </view>
       <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="2">
-        <image class="options-grid-item-img-view" src="/image/condition.png"></image>
+        <image class="options-grid-item-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/condition.png"></image>
         <view class="options-grid-item-text-view">动态管理</view>
       </view>
       <view class="options-grid-item-view" bindtap="manageArticleInfo" data-pageType="3">
-        <image class="options-grid-item-img-view" src="/image/food.png"></image>
+        <image class="options-grid-item-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/food.png"></image>
         <view class="options-grid-item-text-view">美食特产管理</view>
       </view>
     </view>
   </view>
   <view class="options-row-view">
-    <image class="options-row-img-view" src="/image/admin_mgr.png"></image>
+    <image class="options-row-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/admin_mgr.png"></image>
     <view class="options-row-text-view">超级管理员管理</view>
-    <image class="options-row-img-view" src="/image/arrow.png"></image>
+    <image class="options-row-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/arrow.png"></image>
   </view>
 </view>

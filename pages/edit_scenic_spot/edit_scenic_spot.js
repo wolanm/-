@@ -24,7 +24,7 @@ Page({
     reserveTimeChangedFlag1: false,
     reserveTimeChangedFlag2: false,
     reserveTimeChangedFlag3: false,
-    imgList:['/image/add.png']
+    imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png']
   },
 
   /**
@@ -102,7 +102,7 @@ Page({
         reserveTimeChangedFlag1: false,
         reserveTimeChangedFlag2: false,
         reserveTimeChangedFlag3: false,
-        imgList:['/image/add.png']
+        imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png']
       })
     }
   },
