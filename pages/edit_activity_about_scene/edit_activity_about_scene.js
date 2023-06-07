@@ -62,7 +62,7 @@ Page({
     this.setData({selectItem: v})
   },
 
-  selectImg(e) {
+  async selectImg(e) {
     var idx = e.currentTarget.dataset.index
     if (idx != this.data.imgList.length - 1) {
       return
@@ -70,18 +70,46 @@ Page({
 
     var that = this
     var cnt = 7 - this.data.imgList.length
-    wx.chooseImage({
+    await wx.chooseImage({
       count: cnt,
       sourceType:['album', 'camera'],
       success(res) {
         var imgList = that.data.imgList
         imgList.splice(imgList.length - 1, 0, res.tempFilePaths)
         that.setData({imgList: imgList})
+      },
+      fail(res) {
+        return
       }
     })
   },
 
-  onSubmit(e) {
+  async deleteImg(e) {
+    var idx = e.currentTarget.dataset.index
+    if (this.data.imgList.length < 6 && idx === this.data.imgList.length - 1) {
+      return
+    }
+
+    var flag = false
+    await wx.showModal({
+      title: '提示',
+      content: '确认要删除照片吗'
+    }).then(res => {
+      if (res.cancel) {
+        flag = true
+      }
+    })
+
+    if (flag) {
+      return
+    }
+
+    var imgList = this.data.imgList
+    imgList.splice(idx, 1)
+    this.setData({ imgList: imgList })
+  },
+
+  async onSubmit(e) {
     var title = e.detail.value.title
     var content = e.detail.value.content
     if (title.length === 0 || content.length === 0) {
@@ -95,7 +123,7 @@ Page({
     }
 
     var that = this
-    new Promise((resolve) => {
+    await new Promise((resolve) => {
       var res = that.uploadArctile()
       resolve(res)
     }).then(res => {

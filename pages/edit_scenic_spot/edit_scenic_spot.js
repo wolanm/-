@@ -31,6 +31,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    // 获取当前小程序的页面栈 
+    let pages = getCurrentPages(); 
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1];
+    var options = currentPage.options
     if (typeof(options.id) !== 'undefined') {
       var that = this
       db.collection('scenic_spots_info').where({
@@ -107,25 +126,6 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    // 获取当前小程序的页面栈 
-    let pages = getCurrentPages(); 
-    // 数组中索引最大的页面--当前页面  
-    let currentPage = pages[pages.length-1];
-    // 给 onLoad 传入 options 参数，执行 onLoad
-    this.onLoad(currentPage.options)
-  },
-
   selectorChange(e) {
     let i = e.detail.value
     let v = this.data.scenicLevels[i]
@@ -181,7 +181,7 @@ Page({
     }
   },
 
-  selectImg(e) {
+  async selectImg(e) {
     var idx = e.currentTarget.dataset.index
     if (idx != this.data.imgList.length - 1) {
       return
@@ -189,18 +189,46 @@ Page({
 
     var that = this
     var cnt = 2 - this.data.imgList.length
-    wx.chooseImage({
+    await wx.chooseImage({
       count: cnt,
       sourceType:['album', 'camera'],
       success(res) {
         var imgList = that.data.imgList
         imgList.splice(imgList.length - 1, 0, res.tempFilePaths)
         that.setData({imgList: imgList})
+      },
+      fail(res) {
+        return
       }
     })
   },
 
-  onSubmit(e) {
+  async deleteImg(e) {
+    var idx = e.currentTarget.dataset.index
+    if (this.data.imgList.length < 6 && idx === this.data.imgList.length - 1) {
+      return
+    }
+
+    var flag = false
+    await wx.showModal({
+      title: '提示',
+      content: '确认要删除照片吗'
+    }).then(res => {
+      if (res.cancel) {
+        flag = true
+      }
+    })
+
+    if (flag) {
+      return
+    }
+
+    var imgList = this.data.imgList
+    imgList.splice(idx, 1)
+    this.setData({ imgList: imgList })
+  },
+
+  async onSubmit(e) {
     var name = e.detail.value.name
     var gaishu = e.detail.value.gaishu
     var address = e.detail.value.address
@@ -263,7 +291,7 @@ Page({
     }
 
     var that = this
-    db.collection('scenic_spots_info').add({
+    await db.collection('scenic_spots_info').add({
       data: {
         name: name,
         image: that.data.imgList[0],

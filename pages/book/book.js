@@ -47,28 +47,48 @@ Page({
   },
 
   onLoad: function (options) {
-    var that = this
-    db.collection('scenic_spots_info').where({
-      _id: options.id
-    }).get().then(res => {
-      wx.setNavigationBarTitle({
-        title: res.data[0].name
-      });
-      
-      dates = this.formatDate()
+  },
 
-      that.setData({
-        name: res.data[0].name,
-        sceneId: res.data[0]._id,
-        opentime: res.data[0].opentime,
-        address: res.data[0].address,
-        times: res.data[0].reservetime,
-        selectedTime: res.data[0].reservetime[0],
-        dates: dates,
-        selectedDate: dates[0],
-        cap: res.data[0].capacity
-      });
-    })
+  onShow() {
+    // 获取当前小程序的页面栈     
+    let pages = getCurrentPages()
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1]
+    var options = currentPage.options
+
+    if (typeof(options.id) !== 'undefined') {
+      var that = this
+      if (typeof(options.phone) === 'undefined') {
+        options.phone = ''
+      }
+      if (typeof(options.lastname) === 'undefined') {
+        options.lastname = ''
+      }
+      db.collection('scenic_spots_info').where({
+        _id: options.id
+      }).get().then(res => {
+        wx.setNavigationBarTitle({
+          title: res.data[0].name
+        });
+        
+        dates = this.formatDate()
+
+        that.setData({
+          name: res.data[0].name,
+          sceneId: res.data[0]._id,
+          opentime: res.data[0].opentime,
+          address: res.data[0].address,
+          times: res.data[0].reservetime,
+          selectedTime: res.data[0].reservetime[0],
+          dates: dates,
+          selectedDate: dates[0],
+          cap: res.data[0].capacity,
+          phone: options.phone,
+          lastname: options.lastname
+        });
+      })
+    }
+    
   },
 
   bindDateChange: function(e) {
@@ -195,7 +215,7 @@ Page({
       duration: 1500
     });
 
-    await this.delay(1500)
+    await this.delay(1000)
 
     wx.navigateTo({
       url: `/pages/qrcode/qrcode?lastname=${lastname}&phone=${phone}&number=${number}&scenicName=${that.data.name}`

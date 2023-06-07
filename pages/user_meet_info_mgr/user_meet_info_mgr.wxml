@@ -1,0 +1,23 @@
+<!--pages/user_meet_info_mgr/user_meet_info_mgr.wxml-->
+<view class="page-view">
+  <view class="search-view">
+    <image class="search-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/search.png"></image>
+    <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="搜索手机号" confirm-type="search" bindconfirm="search"/>
+    <view class="search-cancel-view" bindtap="cancelSearch">取消</view>
+  </view>
+  <view class="info-count-view">共有{{showList.length}}条预约信息</view>
+  <view class="show-item-view" wx:for="{{showList}}">
+    <view class="show-item-title-view">{{item.scenicName}}</view>
+    <view class="show-item-info-view">
+      <view class="show-item-line-view">预约号:  {{item.meetNumber}}</view>
+      <view class="show-item-line-view">预约用户名:  {{item.name}}</view>
+      <view class="show-item-line-view">预约用户手机号:  {{item.phone}}</view>
+      <view class="show-item-line-view">预约日期:  {{item.meetTime}}</view>
+    </view>
+    <view class="btn-view">
+      <view class="meet-cancel-view" style="color: green" data-index="{{index}}" bindtap="editMeetInfo">编辑</view>
+      <view class="meet-cancel-view" data-index="{{index}}" bindtap="cancelMeetInfo">取消</view>
+    </view>
+  </view>
+</view>
+

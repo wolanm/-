@@ -1,4 +1,5 @@
 const app = getApp()
+const db = wx.cloud.database()
 
 // pages/me/me.js
 Page({
@@ -8,7 +9,8 @@ Page({
    */
   data: {
     userName:"",
-    userPhone:""
+    userPhone:"",
+    meetInfoList: []
   },
 
   /**
@@ -53,4 +55,14 @@ Page({
       url: '/pages/login/login',
     })
   },
+
+  /**
+   * 获取用户的所有预约信息
+   */
+
+  getUserMeetInfo() {
+    wx.navigateTo({
+      url: '/pages/user_meet_info_mgr/user_meet_info_mgr',
+    })
+  }
 })

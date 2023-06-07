@@ -33,6 +33,7 @@ Page({
   data: {
     articleInfoList: [],
     showList: [],
+    pageType: '',
     page: '',
     coll: '',
     placeholder: '',
@@ -43,8 +44,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    
+  },
+
+  onShow() {
+    // 获取当前小程序的页面栈     
+    let pages = getCurrentPages()
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1]
+    var options = currentPage.options
+
     var that = this
     var pageType = options.pageType
+    if (typeof(pageType) === 'undefined') {
+      pageType = this.data.pageType
+    } else {
+      this.setData({pageType: pageType})
+    }
     var page = pageMap.get(pageType)
     var coll = collectionMap.get(pageType)
     var placeholder = placeholderMap.get(pageType)
@@ -75,8 +91,8 @@ Page({
           that.setData({
             page: page,
             coll: coll,
-            articleInfoList: articleInfoList,
-            showList: articleInfoList,
+            articleInfoList: JSON.parse(JSON.stringify(articleInfoList)),
+            showList: JSON.parse(JSON.stringify(articleInfoList)),
             placeholder: placeholder,
             articleName: articleName
           })
@@ -99,8 +115,8 @@ Page({
           that.setData({
             page: page,
             coll: coll,
-            articleInfoList: articleInfoList,
-            showList: articleInfoList,
+            articleInfoList: JSON.parse(JSON.stringify(articleInfoList)),
+            showList: JSON.parse(JSON.stringify(articleInfoList)),
             placeholder: placeholder,
             articleName: articleName
           })
@@ -123,8 +139,8 @@ Page({
           that.setData({
             page: page,
             coll: coll,
-            articleInfoList: articleInfoList,
-            showList: articleInfoList,
+            articleInfoList: JSON.parse(JSON.stringify(articleInfoList)),
+            showList: JSON.parse(JSON.stringify(articleInfoList)),
             placeholder: placeholder,
             articleName: articleName
           })
@@ -142,12 +158,11 @@ Page({
 
             articleInfoList.push(articleObj)
           }
-
           that.setData({
             page: page,
             coll: coll,
-            articleInfoList: articleInfoList,
-            showList: articleInfoList,
+            articleInfoList: JSON.parse(JSON.stringify(articleInfoList)),
+            showList: JSON.parse(JSON.stringify(articleInfoList)),
             placeholder: placeholder,
             articleName: articleName
           })
@@ -156,26 +171,12 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
   search(e) {
     var word = e.detail.value
     var showList = []
     for (const v of this.data.articleInfoList) {
       if (v.title.search(word) !== -1) {
-        showList.push(v)
+        showList.push(JSON.parse(JSON.stringify(v)))
       }
     }
 
@@ -185,7 +186,7 @@ Page({
   cancelSearch() {
     this.setData({
       inputValue: '',
-      showList: this.data.meetInfoList
+      showList: JSON.parse(JSON.stringify(this.data.meetInfoList))
     })
   },
 
@@ -205,15 +206,43 @@ Page({
     })
   },
 
-  deleteArticle(e) {
+  async deleteArticle(e) {
+    var flag = false
+    await wx.showModal({
+      title: '提示',
+      content: '确认要删除吗'
+    }).then(res => {
+      if (res.confirm) {
+        flag = true
+      }
+    })
+
+    if (!flag) {
+      return
+    }
+
     var that = this
     var index = e.currentTarget.dataset.index
     var articleInfoList = this.data.articleInfoList
-    db.collection(that.data.coll).where({
-      _id: articleInfoList[index].id
+    var showList = this.data.showList
+
+    await db.collection(that.data.coll).where({
+      _id: showList[index].id
     }).remove().then(res => {
-      articleInfoList.splice(index, 1)
-      that.setData({articleInfoList: articleInfoList})
+      var deleteIdx = 0
+      while (deleteIdx < articleInfoList.length) {
+        if (articleInfoList[deleteIdx].id === showList[index].id) {
+          break
+        }
+
+        ++deleteIdx
+      }
+      showList.splice(index, 1)
+      articleInfoList.splice(deleteIdx, 1)
+      that.setData({
+        showList: showList,
+        articleInfoList: articleInfoList
+      })
     })
   }
 })

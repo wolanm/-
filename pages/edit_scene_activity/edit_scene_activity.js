@@ -1,5 +1,9 @@
 // pages/edit_activity_about_scene/edit_activity_about_scene.js
 const db = wx.cloud.database()
+let scrollTop = 0;
+let screenHeight = 0;
+let moveResult = {}
+let start = 0
 
 Page({
 
@@ -10,13 +14,37 @@ Page({
     title: '',
     content: '',
     location: '',
-    imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png']
+    imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png'],
+    previewFlag: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    if (this.data.previewFlag) {
+      this.setData({ previewFlag: false })
+      return
+    }
+
+    // 获取当前小程序的页面栈 
+    let pages = getCurrentPages(); 
+    // 数组中索引最大的页面--当前页面  
+    let currentPage = pages[pages.length-1];
+    var options = currentPage.options
     var that = this
     if (typeof(options.id) !== 'undefined') {
       db.collection('scene_activity_info').where({
@@ -34,29 +62,11 @@ Page({
     } else {
       this.setData({
         title: '',
-      content: '',
-      location: '',
-      imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png']
+        content: '',
+        location: '',
+        imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png']
       })
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-    // 获取当前小程序的页面栈 
-    let pages = getCurrentPages(); 
-    // 数组中索引最大的页面--当前页面  
-    let currentPage = pages[pages.length-1];
-    // 给 onLoad 传入 options 参数，执行 onLoad
-    this.onLoad(currentPage.options)
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
 
   },
 
@@ -66,26 +76,66 @@ Page({
     this.setData({selectItem: v})
   },
 
-  selectImg(e) {
+  async selectImg(e) {
+    console.log(this.data.imgList)
     var idx = e.currentTarget.dataset.index
-    if (idx != this.data.imgList.length - 1) {
+    var that = this
+    if (idx !== this.data.imgList.length - 1) {
+      this.setData({previewFlag: true})
+      var urls = []
+      urls.push(that.data.imgList[idx])
+      await wx.previewImage({
+        current: that.data.imgList[idx],
+        urls: urls
+      })
+
       return
     }
 
-    var that = this
     var cnt = 7 - this.data.imgList.length
-    wx.chooseImage({
+    await wx.chooseImage({
       count: cnt,
       sourceType:['album', 'camera'],
       success(res) {
         var imgList = that.data.imgList
-        imgList.splice(imgList.length - 1, 0, res.tempFilePaths)
+        console.log(imgList)
+        var imgArr = JSON.parse(JSON.stringify(res.tempFilePaths))
+        imgList.splice(imgList.length - 1, 0, imgArr[0])
+        console.log(imgList)
         that.setData({imgList: imgList})
+      },
+      fail(res) {
+        return
       }
     })
   },
 
-  onSubmit(e) {
+  async deleteImg(e) {
+    var idx = e.currentTarget.dataset.index
+    if (this.data.imgList.length < 6 && idx === this.data.imgList.length - 1) {
+      return
+    }
+
+    var flag = false
+    await wx.showModal({
+      title: '提示',
+      content: '确认要删除照片吗'
+    }).then(res => {
+      if (res.cancel) {
+        flag = true
+      }
+    })
+
+    if (flag) {
+      return
+    }
+
+    var imgList = this.data.imgList
+    imgList.splice(idx, 1)
+    this.setData({ imgList: imgList })
+  },
+
+  async onSubmit(e) {
     var title = e.detail.value.title
     var location = e.detail.value.location
     var content = e.detail.value.content
@@ -100,7 +150,7 @@ Page({
     }
 
     var that = this
-    new Promise((resolve) => {
+    await new Promise((resolve) => {
       var res = that.uploadArctile()
       resolve(res)
     }).then(res => {

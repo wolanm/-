@@ -41,11 +41,11 @@
   <view class="youke">
     游客信息
   </view>
- <view class="section" data-name="{{lastname}}" >
-   <input class="input" placeholder="请输入姓名" bindinput="bindNameInput"/>
+ <view class="section" data-name="{{lastname}}">
+   <input class="input" value="{{lastname}}" placeholder="请输入姓名" bindinput="bindNameInput"/>
   </view>
   <view class="section" data-phone="{{phone}}">
-    <input class="input" placeholder="请输入电话号码" bindinput="bindPhoneInput" />
+    <input class="input" value="{{phone}}" placeholder="请输入电话号码" bindinput="bindPhoneInput" />
   </view>
  <button class="submit-btn" bindtap="reserve">提交预约</button>
 </view>

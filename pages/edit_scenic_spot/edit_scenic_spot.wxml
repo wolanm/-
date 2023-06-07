@@ -71,7 +71,7 @@
     <view class="spot-img-view">
       <view class="spot-img-text-view">景区图片</view>
       <view class="spot-imgList-view" wx:for="{{imgList}}" wx:for-item='imgUrl' wx:for-index='index'>
-        <image wx:if="{{index < 1}}" class="spot-img-item-view" src="{{imgUrl}}" data-index="{{index}}" bindtap="selectImg"></image>
+        <image wx:if="{{index < 1}}" class="spot-img-item-view" src="{{imgUrl}}" data-index="{{index}}" bindtap="selectImg" bindlongpress="deleteImg"></image>
       </view>
     </view>
     <button type="primary" form-type="submit">保存</button>

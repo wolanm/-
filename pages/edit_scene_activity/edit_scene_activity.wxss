@@ -28,15 +28,16 @@ page {
 }
 
 .title-item-input-view {
-  padding-left: 10rpx;
-  padding-top: 1rpx;
   width: 85%;
   display: inline-block;
+  position: relative;
+  left: 20rpx;
+  top: -2rpx;
 }
 
 .location-item-view {
   height: 6%;
-  width: 100%;
+  width: 95%;
   padding-top: 30rpx;
   display: flex;
   padding-left: 10rpx;
@@ -51,10 +52,11 @@ page {
 }
 
 .location-item-input-view {
-  padding-left: 10rpx;
-  padding-top: 1rpx;
-  width: 80%;
+  width: 75%;
   display: inline-block;
+  position: relative;
+  left: 20rpx;
+  top: -2rpx;
 }
 
 .content-item-with-location-view {
@@ -86,7 +88,7 @@ page {
 
 .image-item-text-view {
   height: 30rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .image-item-list-view {

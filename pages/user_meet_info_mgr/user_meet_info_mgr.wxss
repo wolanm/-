@@ -1,4 +1,4 @@
-/* pages/meet_mgr/meet_mgr.wxss */
+/* pages/user_meet_info_mgr/user_meet_info_mgr.wxss */
 
 page {
   height: 100%;
@@ -10,26 +10,6 @@ page {
   height: 100%;
   width: 100%;
   background-color: white;
-}
-
-.create-article-view {
-  height: 7%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color:	#00BFFF;
-}
-
-.create-article-img-view {
-  height: 45rpx; 
-  width: 45rpx;
-  position: relative;
-  left: -10rpx;
-}
-
-.create-article-text-view {
-  color: white;
 }
 
 .search-view {
@@ -112,16 +92,6 @@ page {
   position: relative;
   left: 30rpx;
   font-size: 35rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.show-item-img-view {
-  height: 300rpx;
-  width: 300rpx;
-  position: relative;
-  left: 30rpx;
 }
 
 .btn-view {

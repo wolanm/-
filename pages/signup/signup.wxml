@@ -1,7 +1,7 @@
 
 <view class="zjn">
   <view class="scenic-spot-list">
-   <view wx:for="{{scenicSpots}}" style="width: 100%;">
+   <view wx:for="{{scenicSpots}}" style="width: 100%; height: auto;">
       <view class="scenic-spot-item" data-id="{{item.id}}" bindtap="onScenicSpotTap">
         <image class="image" src="{{item.image}}"></image>
         <view class="text-container">
