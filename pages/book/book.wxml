@@ -16,10 +16,6 @@
           <view class="cell-bd" >地址：{{address}}</view>
         </view>
       </view>
-      <view class="navigate-view">
-        <image class="navigate-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/navigate.png"></image>
-        <view class="navigate-text-view" bindtap="navigate">立即导航</view>
-      </view>
   </view>
   <view class="section" data-date="{{dateIndex}}" >
     <picker mode="selector" range="{{dates}}" bindchange="bindDateChange">

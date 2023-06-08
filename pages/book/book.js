@@ -220,10 +220,6 @@ Page({
     wx.navigateTo({
       url: `/pages/qrcode/qrcode?lastname=${lastname}&phone=${phone}&number=${number}&scenicName=${that.data.name}`
     })
-  },
-
-  navigate() {
-    
   }
 })
     

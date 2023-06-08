@@ -15,7 +15,8 @@ Page({
     content: '',
     location: '',
     imgList:['cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/add.png'],
-    previewFlag: false
+    previewFlag: false,
+    chooseFlag: false
   },
 
   /**
@@ -35,8 +36,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    if (this.data.previewFlag) {
-      this.setData({ previewFlag: false })
+    if (this.data.previewFlag || this.data.chooseFlag) {
+      this.setData({ 
+        previewFlag: false,
+        chooseFlag: false
+      })
       return
     }
 
@@ -77,31 +81,29 @@ Page({
   },
 
   async selectImg(e) {
-    console.log(this.data.imgList)
     var idx = e.currentTarget.dataset.index
     var that = this
     if (idx !== this.data.imgList.length - 1) {
-      this.setData({previewFlag: true})
       var urls = []
       urls.push(that.data.imgList[idx])
+      that.setData({previewFlag: true})
       await wx.previewImage({
-        current: that.data.imgList[idx],
+        current: urls[0],
         urls: urls
       })
-
+      
       return
     }
 
     var cnt = 7 - this.data.imgList.length
+    that.setData({chooseFlag: true})
     await wx.chooseImage({
       count: cnt,
       sourceType:['album', 'camera'],
       success(res) {
         var imgList = that.data.imgList
-        console.log(imgList)
-        var imgArr = JSON.parse(JSON.stringify(res.tempFilePaths))
-        imgList.splice(imgList.length - 1, 0, imgArr[0])
-        console.log(imgList)
+        var imgUrl = res.tempFilePaths[0]
+        imgList.splice(imgList.length - 1, 0, imgUrl)
         that.setData({imgList: imgList})
       },
       fail(res) {

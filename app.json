@@ -21,7 +21,8 @@
     "pages/edit_scene_activity/edit_scene_activity",
     "pages/edit_scenic_spot/edit_scenic_spot",
     "pages/meet_mgr/meet_mgr",
-    "pages/user_meet_info_mgr/user_meet_info_mgr"
+    "pages/user_meet_info_mgr/user_meet_info_mgr",
+    "pages/modify_admin_password/modify_admin_password"
   ],
   "window": {
     "usingComponents": {},

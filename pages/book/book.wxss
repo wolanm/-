@@ -14,7 +14,7 @@ page {
 }
 .scenic-spot-info{
   margin-top: 50rpx;
-  height: 30%;
+  height: auto;
   width: 100%;
   border-top:1rpx solid #eeeeee;
   border-bottom:1rpx solid #eeeeee;
@@ -97,33 +97,5 @@ page {
   line-height: 45px;
   background-color: #1aad19;
   color: white;
-  text-align: center;
-}
-
-.navigate-view {
-  height: 100rpx;
-  width: 100%;
-  margin-top: -20rpx;
-}
-
-.navigate-img-view {
-  height: 60rpx;
-  width: 60rpx;
-  display: inline-block;
-  position: relative;
-  top: 10rpx;
-}
-
-.navigate-text-view {
-  height: 45rpx;
-  width: 150rpx;
-  margin-left: 3rpx;
-  display: inline-block;
-  font-size: 32rpx;
-  color:green;
-  border: 5rpx solid green;
-  border-radius: 15rpx;
-  position: relative;
-  top:-10rpx;
   text-align: center;
 }

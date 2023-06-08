@@ -16,8 +16,8 @@
     <view class="image-item-view">
       <view class="image-item-text-view">图片上传</view>
       <view class="image-item-list-view">
-        <view class="image-item-list-for-view" wx:for="{{imgList}}" wx:for-item='imgUrl' wx:for-index='index'>
-          <image wx:if="{{index < 6}}" class="image-item-list-img-view" src="{{imgUrl}}" data-index="{{index}}" bindtap="selectImg" bindlongpress="deleteImg"></image>
+        <view class="image-item-list-for-view" wx:for="{{imgList}}" wx:for-index='index'>
+          <image wx:if="{{index < 6}}" class="image-item-list-img-view" src="{{item}}" data-index="{{index}}" bindtap="selectImg" bindlongpress="deleteImg"></image>
         </view>
       </view>
     </view>

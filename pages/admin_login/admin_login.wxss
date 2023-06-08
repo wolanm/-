@@ -62,21 +62,54 @@ page {
   border-radius: 30rpx;
 }
 
+.al-login-password-view {
+  height: 20%;
+  display: flex;
+}
+
+.al-login-password-input-view {
+  height: 100%;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 20%;
+  border: solid;
+  border-radius: 30rpx;
+}
+
+.al-login-password-img-view {
+  height: 50rpx;
+  width: 50rpx;
+  position: relative;
+  left: 10rpx;
+  top: 20rpx;
+}
+
+.al-login-sumbit-view {
+  height: 50%;
+  display: flex;
+  position: relative;
+  top: 70rpx;
+}
+
 .al-btn-view {
-  height: 22%;
+  height: 50%;
   width: 30%;
-  line-height: 200%;
+  margin-top: 10%;
   text-align: center;
   border-radius: 30rpx;
   background-color: #1e725e;
   color: white;
+  position: relative;
+  left: 70rpx;
 }
 
 .al-option-view {
   height: auto;
-  width: 100%;
-  margin-top: 16.5%;
-  margin-left: 67%;
+  display: flex;
+  align-items: center;
   color: red;
   text-decoration: underline;
+  position: relative;
+  right: 80rpx;
+  top: 40rpx;
 }

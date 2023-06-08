@@ -9,7 +9,7 @@
     <input class="search-input-view" value="{{inputValue}}" type="text" placeholder="{{placeholder}}" confirm-type="search" bindconfirm="search"/>
     <view class="search-cancel-view" bindtap="cancelSearch">取消</view>
   </view>
-  <view class="info-count-view">共有{{showList.length}}条预约信息</view>
+  <view class="info-count-view">共有{{showList.length}}条{{articleName}}信息</view>
   <view class="show-item-view" wx:for="{{showList}}">
     <view class="show-item-title-view">{{item.title}}</view>
     <view class="show-item-info-view">

@@ -8,12 +8,15 @@
       <view class="al-login-view">
         <form bindsubmit="onAdminLogin" style="height: 100%; width: 100%;">
           <input class="al-login-item-view" name="userName" type="text" placeholder="用户名" />
-          <input class="al-login-item-view" name="userPassword" type="text" placeholder="密码" />
-          <button class="al-btn-view" form-type="submit">登录</button>
+          <view class="al-login-password-view">
+            <input class="al-login-password-input-view" name="userPassword" type="text" password="{{!open}}" placeholder="密码" />
+            <image class="al-login-password-img-view" catchtap="switch" src="{{open ? 'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/eyes-open.png' : 'cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/eyes_close.png'}}"></image>
+          </view>
+          <view class="al-login-sumbit-view">
+            <button class="al-btn-view" form-type="submit">登录</button>
+            <view class="al-option-view" bindtap="onFindPassword">找回密码</view>
+          </view>
         </form>
-      </view>
-      <view class="al-option-view" bindtap="onFindPassword">
-        找回密码
       </view>
     </view>
   </view>

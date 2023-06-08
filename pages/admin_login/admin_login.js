@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    open: false, // 默认不显示密码
+    focus:false, // 是否获取焦点
   },
 
   /**
@@ -18,17 +19,16 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
 
+  },
+
+  switch() {
+    this.setData({
+      open: !this.data.open
+    })
   },
 
   onAdminLogin : async function (e) {
@@ -76,7 +76,7 @@ Page({
 
   onFindPassword(e) {
     wx.navigateTo({
-      url: '/pages/admin_set_password/admin_set_password',
+      url: '/pages/modify_admin_password/modify_admin_password',
     })
   }
 })
