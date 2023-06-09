@@ -1,7 +1,6 @@
 const db = wx.cloud.database()
 const _ = db.command
 const timer = new Date()
-var ynStop = false
 var num = 60
 
 Page({
@@ -14,21 +13,30 @@ Page({
     num: num,
     hidden: false,
     sendFlag: false,
-    open: false
+    open: false,
+    stop: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    
+    num = 60
+    this.setData({stop: false})
+  },
+
+  onHide() {
+    this.setData({stop: true})
+  },
+
+  onUnload() {
+    this.setData({stop: true})
   },
 
   switch() {
@@ -54,9 +62,14 @@ Page({
 
   async timer() {
     for (let i = 0; i < 60; ++i) {
+      if (this.data.stop) {
+        break
+      }
+
       this.setData({
         num: num--
       })
+      console.log(num)
       await this.delay(1000)
     }
 
@@ -113,8 +126,6 @@ Page({
 
     await that.delay(1000)
 
-    wx.navigateTo({
-      url: '/pages/admin_login/admin_login',
-    })
+    wx.navigateBack()
   }
 })

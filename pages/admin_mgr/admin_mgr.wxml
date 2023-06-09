@@ -54,7 +54,7 @@
       </view>
     </view>
   </view>
-  <view class="options-row-view">
+  <view class="options-row-view" bindtap="modifyManagerPassword">
     <image class="options-row-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/admin_mgr.png"></image>
     <view class="options-row-text-view">超级管理员管理</view>
     <image class="options-row-img-view" src="cloud://cloud1-8glw5m5v07e9ee9d.636c-cloud1-8glw5m5v07e9ee9d-1317059123/scenic_spot_tourism_img/arrow.png"></image>

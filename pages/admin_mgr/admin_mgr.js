@@ -26,9 +26,9 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 生命周期函数--监听页面显示
    */
-  onReady() {
+  onShow() {
     var that = this
     db.collection('meet_info').get().then(res => {
       that.setData({
@@ -57,11 +57,10 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  modifyManagerPassword() {
+    wx.navigateTo({
+      url: '/pages/modify_admin_password/modify_admin_password',
+    })
   },
 
   editActivityAboutScene() {
