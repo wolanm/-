@@ -1,5 +1,8 @@
 const db = wx.cloud.database()
+const _ = db.command
 const timer = new Date()
+var ynStop = false
+var num = 60
 
 Page({
 
@@ -7,8 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    accessCode: '',
-    sendCodeTime: 0,
+    accessCode: '041039',
+    num: num,
+    hidden: false,
+    sendFlag: false,
+    open: false
   },
 
   /**
@@ -22,27 +28,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    
   },
 
-  generateMixed(n) {
-    let chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    let res = "";
-    for (var i = 0; i < n; i++) {
-      var id = Math.ceil(Math.random() * 10); //10为chars数组个数，数组里也可以写字母，只要这边个数写对就没问题
-      res += chars[id];
-    }
-    return res;
-  },
-
-  getTimeStamp() {
-    return timer.getTime() / 1000
-  },
-
-  onSendAccessCode(e) {
+  switch() {
     this.setData({
-      accessCode: accessCode,
-      sendCodeTime: this.getTimeStamp()
+      open: !this.data.open
     })
   },
 
@@ -52,15 +43,42 @@ Page({
     })
   },
 
+  fresh() {  //停止函数
+    num = 60
+    this.setData({
+      num: 60,
+      hidden: false,
+      sendFlag: false
+    })
+  },
+
+  async timer() {
+    for (let i = 0; i < 60; ++i) {
+      this.setData({
+        num: num--
+      })
+      await this.delay(1000)
+    }
+
+    this.fresh()
+  },
+  
+  onSendAccessCode() {
+    this.setData({
+      hidden: true,
+      sendFlag: true
+    })
+    this.timer()
+  },
+ 
   async onModifyPassword(e) {
     var that = this
-    var userName = e.detail.value.userName
-    var userPassWord = e.detail.value.userPassWord
+    var userPassword = e.detail.value.userPassword
     var accessCode = e.detail.value.accessCode
     // 是否超时
-    if (this.getTimeStamp() - this.data.sendCodeTime > 60) {
+    if (!this.data.sendFlag) {
       await wx.showToast({
-        title: '验证码已失效',
+        title: '验证码无效',
         icon: 'error',
         duration: 1500
       })
@@ -79,22 +97,24 @@ Page({
       return
     }
 
-    db.collection('admin_info').where({
-      userName: userName
+    await db.collection('admin_info').where({
+      userName: 'admin'
     }).update({
-      userPassWord: userPassWord
-    }).then(res => {
-      wx.showToast({
-        title: '修改成功',
-        icon: 'success',
-        duration: 1500
-      })
+      data: {
+        userPassword: userPassword
+      }
+    })
 
-      that.delay(1000)
+    await wx.showToast({
+      title: '修改成功',
+      icon: 'success',
+      duration: 1500
+    })
 
-      wx.navigateTo({
-        url: '/pages/admin_login/admin_login',
-      })
+    await that.delay(1000)
+
+    wx.navigateTo({
+      url: '/pages/admin_login/admin_login',
     })
   }
 })
