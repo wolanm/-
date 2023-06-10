@@ -1,10 +1,7 @@
 {
-  "dependencies": {
-    "weui-miniprogram": "^1.2.7"
-  },
   "name": "scenic_spot_tourism",
-  "description": "",
   "version": "1.0.0",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/wolanm/Scenic_spot_tourism.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wolanm/Scenic_spot_tourism/issues"
   },
-  "homepage": "https://github.com/wolanm/Scenic_spot_tourism#readme"
+  "homepage": "https://github.com/wolanm/Scenic_spot_tourism#readme",
+  "dependencies": {
+    "vant-weapp": "^0.5.29"
+  }
 }
